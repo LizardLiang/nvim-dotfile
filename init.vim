@@ -11,7 +11,7 @@ if !1 | finish | endif
 set nocompatible
 set number
 syntax enable
-set fileencodings=utf-8,sjis,euc-jp,latin
+set fileencodings=utf-8,latin
 set encoding=utf-8
 set title
 set autoindent
@@ -24,7 +24,7 @@ set laststatus=2
 set scrolloff=10
 set expandtab
 "let loaded_matchparen = 1
-set shell=fish
+set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
 
 " incremental substitution (neovim)
@@ -62,6 +62,22 @@ autocmd InsertLeave * set nopaste
 
 " Add asterisks in block comments
 set formatoptions+=r
+
+"}}}
+
+" Clang setting "{{{
+let g:ale_linters = {
+    \'cpp': ['clang'],
+    \'c': ['clang']
+    \}
+
+let g:neoformat_cpp_clangformat={
+  \ 'exe': 'clang-format',
+  \ 'args': ['--style="{IndentWidth: 4}"']
+  \}
+
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
 
 "}}}
 
@@ -143,9 +159,32 @@ endif
 
 "}}}
 
+" CtrlFS "{{{
+nmap <C-F>f <Plug>CtrlSFPrompt
+nmap <C-F>n <Plug>CtrlSFCwordPath
+nmap <C-F>p <Plug>CtrlSFPwordPath
+"}}}
+
+" NERDTree "{{{
+" autocmd VimEnter * NERDTree | wincmd p
+"Close the tab is NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"If another buffer tries to replace NERDTree, put it in the other window, and
+"bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | 
+      \ let buf = bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+"Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+let g:NERDTreeDirArrowCollapsible='-'
+let g:NERDTreeWinSize=20
+let NERDTreeShowHidden=1
+"}}}
+
 " Extras "{{{
 " ---------------------------------------------------------------------
 set exrc
 "}}}
 
-" vim: set foldmethod=marker foldlevel=0:
+" vim: set foldmethod=marker foldlevel=0
+"
+

@@ -6,6 +6,9 @@ call plug#begin()
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+"Plug 'dyng/ctrlsf.vim'
+Plug 'preservim/nerdtree'
+Plug 'mhartington/formatter.nvim'
 
 if has("nvim")
   Plug 'hoob3rt/lualine.nvim'
@@ -13,7 +16,7 @@ if has("nvim")
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugs' }
   Plug 'neovim/nvim-lspconfig'
-  Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
+  Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -21,15 +24,18 @@ if has("nvim")
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'folke/trouble.nvim'
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
+  Plug 'windwp/nvim-ts-autotag'
   Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugs' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Briefly highlight which text was yanked.
   Plug 'machakann/vim-highlightedyank'
@@ -74,7 +80,7 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
-colorscheme molokai
+" colorscheme molokai
 
 let g:airline_theme='google_dark'
 let g:airline#extensions#tabline#enabled = 1
