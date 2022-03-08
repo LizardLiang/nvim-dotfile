@@ -6,6 +6,9 @@ call plug#begin()
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
 "Plug 'dyng/ctrlsf.vim'
 Plug 'preservim/nerdtree'
 Plug 'mhartington/formatter.nvim'
@@ -24,6 +27,7 @@ if has("nvim")
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'dense-analysis/ale'
   Plug 'folke/trouble.nvim'
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
@@ -36,6 +40,10 @@ if has("nvim")
   Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'kana/vim-textobj-user'
+  Plug 'glts/vim-textobj-comment'
+  Plug 'sgur/vim-textobj-parameter'
+  Plug 'neovim/node-host', {'do': 'npm install'}
 
   " Briefly highlight which text was yanked.
   Plug 'machakann/vim-highlightedyank'
@@ -51,9 +59,6 @@ if has("nvim")
 
   " Better display unwanted whitespace.
   Plug 'ntpeters/vim-better-whitespace'
-
-  " Toggle comments in various ways.
-  Plug 'tpope/vim-commentary'
 
   " Automatically set 'shiftwidth' + 'expandtab' (indention) based on file type.
   Plug 'tpope/vim-sleuth'
