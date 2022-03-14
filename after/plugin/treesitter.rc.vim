@@ -25,10 +25,10 @@ require'nvim-treesitter.configs'.setup {
     "scss"
   },
   autotag = {
-    enable = true,
+    enable = false,
   }
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "typescript.tsx" }
+parser_config.tsx.filetype_to_parsername = { "typescript.tsx", "javascript.jsx" }
 EOF
