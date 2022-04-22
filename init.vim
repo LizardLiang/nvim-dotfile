@@ -27,6 +27,7 @@ set expandtab
 "let loaded_matchparen = 1
 set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
+set ff=unix
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -126,6 +127,9 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
 "}}}
+"
+
+let g:ale_disable_lsp=1
 
 " Imports "{{{
 " ---------------------------------------------------------------------
@@ -160,27 +164,6 @@ endif
 
 "}}}
 
-" CtrlFS "{{{
-nmap <C-F>f <Plug>CtrlSFPrompt
-nmap <C-F>n <Plug>CtrlSFCwordPath
-nmap <C-F>p <Plug>CtrlSFPwordPath
-"}}}
-
-" NERDTree "{{{
-" autocmd VimEnter * NERDTree | wincmd p
-"Close the tab is NERDTree is the only window remaining in it.
-" autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-"If another buffer tries to replace NERDTree, put it in the other window, and
-"bring back NERDTree.
-" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | 
-      " \ let buf = bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-"Open the existing NERDTree on each new tab.
-"autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-"let g:NERDTreeDirArrowCollapsible='-'
-"let g:NERDTreeWinSize=20
-"let NERDTreeShowHidden=1
-""}}}
-
 " Extras "{{{
 " ---------------------------------------------------------------------
 set exrc
@@ -189,11 +172,8 @@ set exrc
 " vim: set foldmethod=marker foldlevel=0
 "
 
-let g:tigris#enabled=1
-
 let g:node_host_prog='/home/lizard/.nvm/versions/node/v16.14.0/bin/node'
 let g:coc_node_path='/home/lizard/.nvm/versions/node/v16.14.0/bin/node'
 
 nmap <silent> gL <cmd>call coc#rpc#request('fillDiagnostics', [bufnr('%')])<CR><cmd>Trouble loclist<CR>`
 
-let g:ale_disable_lsp=1

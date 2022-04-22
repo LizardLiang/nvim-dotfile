@@ -9,9 +9,9 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
-"Plug 'dyng/ctrlsf.vim'
-Plug 'preservim/nerdtree'
-Plug 'mhartington/formatter.nvim'
+" Plug 'dyng/ctrlsf.vim'
+" Plug 'preservim/nerdtree'
+" Plug 'mhartington/formatter.nvim'
 
 if has("nvim")
   Plug 'hoob3rt/lualine.nvim'
@@ -27,7 +27,7 @@ if has("nvim")
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'dense-analysis/ale'
+  " Plug 'dense-analysis/ale'
   Plug 'folke/trouble.nvim'
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
