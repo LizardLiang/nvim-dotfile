@@ -39,3 +39,9 @@ keymap.set('n', '<A-k>', ":m .-2<CR>==")
 keymap.set('n', '<A-j>', ":m .+1<CR>==")
 keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
+
+-- Toggle comment
+keymap.set('n', '<C-/>', 'gcc')
+
+-- Nvim-tree
+keymap.set('n', '<C-n>', ':NvimTreeToggle<Return>')

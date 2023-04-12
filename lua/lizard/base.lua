@@ -30,6 +30,10 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 
+-- Fold Code
+vim.opt.foldenable = false
+vim.opt.foldmethod = "indent"
+
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
@@ -43,9 +47,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 
+vim.opt.termguicolors = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.netrw_banner = 1
 vim.g.netrw_liststyle = 3
 vim.g.netrw_browser_split = 4
 vim.g.netrw_altv = 1
 vim.g.netrw_winsize = 20
-vim.cmd([[autocmd BufWritePre *.py Black]])

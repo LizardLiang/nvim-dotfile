@@ -2,6 +2,12 @@ local status, comment = pcall(require, "Comment")
 if (not status) then return end
 
 comment.setup {
+  toggler = {
+    line = '<C-_>',
+  },
+  opleader = {
+    line = '<C-_>',
+  },
   pre_hook = function(ctx)
     -- Only calculate commentstring for tsx filetypes
     if vim.bo.filetype == 'typescriptreact' then

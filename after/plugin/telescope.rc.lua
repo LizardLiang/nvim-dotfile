@@ -13,7 +13,10 @@ telescope.setup {
   defaults = {
     mappings = {
       n = {
-        ["q"] = actions.close
+        ["q"] = actions.close,
+      },
+      i = {
+        ["<C-h>"] = "which_key"
       },
     },
   },
