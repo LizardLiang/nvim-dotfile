@@ -23,10 +23,6 @@ keymap.set('n', 'ss', ':split<Return><C-w>w')
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 -- Move window
 keymap.set('n', '<Space>', '<C-w>w')
-keymap.set('', 'sh', '<C-w>h')
-keymap.set('', 'sk', '<C-w>k')
-keymap.set('', 'sj', '<C-w>j')
-keymap.set('', 'sl', '<C-w>l')
 
 -- Resize window
 keymap.set('n', '<C-w><left>', '<C-w><')
@@ -43,5 +39,8 @@ keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
 -- Toggle comment
 keymap.set('n', '<C-/>', 'gcc')
 
--- Nvim-tree
-keymap.set('n', '<C-n>', ':NvimTreeToggle<Return>')
+-- Toggle window
+keymap.set('n', '<C-h>', '<C-w>h')
+keymap.set('n', '<C-k>', '<C-w>k')
+keymap.set('n', '<C-j>', '<C-w>j')
+keymap.set('n', '<C-l>', '<C-w>l')

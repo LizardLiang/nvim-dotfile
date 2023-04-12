@@ -84,30 +84,25 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  black = {
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\black",
-    url = "https://github.com/psf/black"
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  cmp_luasnip = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
   ["colorbuddy.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
-  ["fidget.nvim"] = {
+  ["completion-nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fidget.nvim",
-    url = "https://github.com/j-hui/fidget.nvim"
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\completion-nvim",
+    url = "https://github.com/nvim-lua/completion-nvim"
   },
   ["git.nvim"] = {
     loaded = true,
@@ -118,11 +113,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["indent-blankline.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -154,15 +144,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["neodev.nvim"] = {
+  ["neo-tree.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
-    url = "https://github.com/folke/neodev.nvim"
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   ["neosolarized.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neosolarized.nvim",
     url = "https://github.com/svrana/neosolarized.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -194,17 +189,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-surround"] = {
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-treesitter-textobjects"] = {
-    load_after = {},
-    loaded = true,
-    needs_bufread = false,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-treesitter-textobjects",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
@@ -231,71 +225,28 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
-  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
-  },
-  ["telescope-fzf-native.nvim"] = {
-    cond = { false },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-rhubarb"] = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rhubarb",
-    url = "https://github.com/tpope/vim-rhubarb"
-  },
-  ["vim-sleuth"] = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-sleuth",
-    url = "https://github.com/tpope/vim-sleuth"
-  },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
-    url = "https://github.com/tpope/vim-surround"
-  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zen-mode.nvim",
     url = "https://github.com/folke/zen-mode.nvim"
-  },
-  ["zippy.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zippy.nvim",
-    url = "https://github.com/PatschD/zippy.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Conditional loads
-time([[Conditional loading of telescope-fzf-native.nvim]], true)
-  require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)
-time([[Conditional loading of telescope-fzf-native.nvim]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-treesitter ]]
-vim.cmd [[ packadd nvim-treesitter-textobjects ]]
-time([[Sequenced loading]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
