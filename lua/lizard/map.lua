@@ -44,3 +44,7 @@ keymap.set('n', '<C-h>', '<C-w>h')
 keymap.set('n', '<C-k>', '<C-w>k')
 keymap.set('n', '<C-j>', '<C-w>j')
 keymap.set('n', '<C-l>', '<C-w>l')
+
+-- copy selection and paste it 
+keymap.set('v', '<C-j>', 'yjp')
+keymap.set('v', '<C-k>', 'ykp')
