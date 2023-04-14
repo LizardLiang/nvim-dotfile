@@ -48,3 +48,9 @@ keymap.set('n', '<C-l>', '<C-w>l')
 -- copy selection and paste it 
 keymap.set('v', '<C-j>', 'yjp')
 keymap.set('v', '<C-k>', 'ykp')
+
+-- close tab
+keymap.set('n', '<Space>tc', ':tabc<Return>')
+
+-- terminal
+keymap.set('t', '<Esc>', '<C-\\><C-n>')
