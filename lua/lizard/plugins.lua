@@ -71,4 +71,8 @@ packer.startup(function(use)
   })
 
   use 'tpope/vim-fugitive'
+  use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'}
+  use {'f-person/git-blame.nvim'}
+  use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim'}
+  use {'akinsho/git-conflict.nvim', tag="*", config = function() require('git-conflict').setup() end}
 end)

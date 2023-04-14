@@ -99,6 +99,22 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
+  ["git-blame.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\git-blame.nvim",
+    url = "https://github.com/f-person/git-blame.nvim"
+  },
+  ["git-conflict.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\git-conflict.nvim",
+    url = "https://github.com/akinsho/git-conflict.nvim"
+  },
   ["git.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\git.nvim",
@@ -143,6 +159,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  neogit = {
+    loaded = true,
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neogit",
+    url = "https://github.com/TimUntersberger/neogit"
   },
   ["neosolarized.nvim"] = {
     loaded = true,
@@ -243,6 +264,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: git-conflict.nvim
+time([[Config for git-conflict.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+time([[Config for git-conflict.nvim]], false)
 -- Config for: nvim-surround
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
