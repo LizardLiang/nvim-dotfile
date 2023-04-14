@@ -1,4 +1,5 @@
 local status, null_ls = pcall(require, "null-ls")
+local ts_status, typescript = pcall(require, "typescript")
 if (not status) then return end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -21,6 +22,7 @@ null_ls.setup {
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.formatting.black.with({ extra_args = { "--line-length=79" } }),
     null_ls.builtins.formatting.isort,
+    require("typescript.extensions.null-ls.code-actions")
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

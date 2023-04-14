@@ -75,4 +75,10 @@ packer.startup(function(use)
   use {'f-person/git-blame.nvim'}
   use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim'}
   use {'akinsho/git-conflict.nvim', tag="*", config = function() require('git-conflict').setup() end}
+
+  -- debug print
+  use 'PatschD/zippy.nvim'
+
+  -- prettier
+  use 'jose-elias-alvarez/typescript.nvim'
 end)
