@@ -46,7 +46,7 @@ packer.startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
   use 'akinsho/nvim-bufferline.lua'
-  -- use 'github/copilot.vim'
+  use 'github/copilot.vim'
 
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
@@ -71,14 +71,23 @@ packer.startup(function(use)
   })
 
   use 'tpope/vim-fugitive'
-  use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'}
-  use {'f-person/git-blame.nvim'}
-  use {'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim'}
-  use {'akinsho/git-conflict.nvim', tag="*", config = function() require('git-conflict').setup() end}
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'f-person/git-blame.nvim' }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'akinsho/git-conflict.nvim', tag = "*", config = function() require('git-conflict').setup() end }
 
   -- debug print
   use 'PatschD/zippy.nvim'
 
   -- prettier
   use 'jose-elias-alvarez/typescript.nvim'
+
+  -- syntax highlighting for python
+  -- use 'sheerun/vim-polyglot'
+  use 'vim-python/python-syntax'
+  -- use{  'wookayin/semshi', ft="python", config="vim.cmd [[UpdateRemotePlugins]]" }
+  -- use{  'numirias/semshi', ft="python", config="vim.cmd [[UpdateRemotePlugins]]" }
+
+  -- better TODO list
+  use {"folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim"}
 end)

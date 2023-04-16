@@ -7,10 +7,11 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
     filter = function(client)
-      return client.name == "null-ls"
+      return client.name == "null-ls" or client.name == "tsserver"
     end,
     bufnr = bufnr,
   })
+  require("typescript").actions.organizeImports()
 end
 
 null_ls.setup {

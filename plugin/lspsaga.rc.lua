@@ -21,9 +21,9 @@ vim.keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
 -- vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
 vim.keymap.set('i', '[d', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 vim.keymap.set('n', 'gp', '<Cmd>Lspsaga peek_definition<CR>', opts)
-vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
-vim.keymap.set('n', 'gt', '<Cmd>Lspsaga peek_type_definition<CR>', opts)
-vim.keymap.set('n', 'gT', '<Cmd>Lspsaga goto_type_definition<CR>', opts)
+vim.keymap.set('n', '<F2>', '<Cmd>Lspsaga rename<CR>', opts)
+vim.keymap.set('n', '<leader>gt', '<Cmd>Lspsaga peek_type_definition<CR>', opts)
+vim.keymap.set('n', '<leader>gT', '<Cmd>Lspsaga goto_type_definition<CR>', opts)
 
 -- code action
 local codeaction = require("lspsaga.codeaction")
