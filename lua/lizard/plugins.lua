@@ -93,4 +93,10 @@ packer.startup(function(use)
 
   -- Trouble for better list
   use 'folke/trouble.nvim'
+
+  -- Duplicate
+  use 'smjonas/duplicate.nvim'
+
+  -- Multi cursor
+  -- use 'mg979/vim-visual-multi'
 end)

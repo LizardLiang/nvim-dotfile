@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  ["duplicate.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\duplicate.nvim",
+    url = "https://github.com/smjonas/duplicate.nvim"
+  },
   ["git-blame.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\git-blame.nvim",

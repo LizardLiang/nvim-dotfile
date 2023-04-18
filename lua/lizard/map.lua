@@ -54,3 +54,7 @@ keymap.set('n', '<Space>tc', ':tabc<Return>')
 
 -- terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
+-- duplicate block
+keymap.set('v', '<C-S-j>', ":t'><Return>", {noremap= true, silent= true})
+
