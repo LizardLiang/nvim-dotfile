@@ -90,4 +90,7 @@ packer.startup(function(use)
 
   -- better TODO list
   use {"folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim"}
+
+  -- Trouble for better list
+  use 'folke/trouble.nvim'
 end)
