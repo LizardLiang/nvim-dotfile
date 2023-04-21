@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\LIZARD~1.WAT\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\LIZARD~1.WAT\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\LIZARD~1.WAT\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\LIZARD~1.WAT\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\LIZARD~1.WAT\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
+local package_path_str = "/home/lizard/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/lizard/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/lizard/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/lizard/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/lizard/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,237 +76,237 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["Comment.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
   LuaSnip = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["copilot.vim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\copilot.vim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
   ["diffview.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\diffview.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
   ["duplicate.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\duplicate.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/duplicate.nvim",
     url = "https://github.com/smjonas/duplicate.nvim"
   },
   ["git-blame.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\git-blame.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
     url = "https://github.com/f-person/git-blame.nvim"
   },
   ["git-conflict.nvim"] = {
     config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\git-conflict.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
     url = "https://github.com/akinsho/git-conflict.nvim"
   },
   ["git.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\git.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/git.nvim",
     url = "https://github.com/dinhhuy258/git.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kanagawa.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspsaga.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\markdown-preview.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason-lspconfig.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["neo-tree.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   neogit = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neogit",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
   ["nui.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\null-ls.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-bufferline.lua"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-bufferline.lua",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua",
     url = "https://github.com/akinsho/nvim-bufferline.lua"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-surround"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-surround",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-surround",
     url = "https://github.com/kylechui/nvim-surround"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-autotag",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-context-commentstring",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["python-syntax"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\python-syntax",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/python-syntax",
     url = "https://github.com/vim-python/python-syntax"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-file-browser.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\todo-comments.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
   },
   ["transparent.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\transparent.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/transparent.nvim",
     url = "https://github.com/xiyaowong/transparent.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
   ["typescript.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\typescript.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
   ["zen-mode.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zen-mode.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
     url = "https://github.com/folke/zen-mode.nvim"
   },
   ["zippy.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zippy.nvim",
+    path = "/home/lizard/.local/share/nvim/site/pack/packer/start/zippy.nvim",
     url = "https://github.com/PatschD/zippy.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
 -- Config for: git-conflict.nvim
 time([[Config for git-conflict.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
 time([[Config for git-conflict.nvim]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
