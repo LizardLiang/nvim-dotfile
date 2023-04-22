@@ -104,4 +104,6 @@ packer.startup(function(use)
 
   -- Multi cursor
   -- use 'mg979/vim-visual-multi'
+  -- Symbol outlines
+  use {'simrat39/symbols-outline.nvim'}
 end)
