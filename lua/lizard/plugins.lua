@@ -27,6 +27,7 @@ packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use 'jay-babu/mason-nvim-dap.nvim'
 
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
@@ -106,4 +107,10 @@ packer.startup(function(use)
   -- use 'mg979/vim-visual-multi'
   -- Symbol outlines
   use {'simrat39/symbols-outline.nvim'}
+
+  -- Dap
+  use 'mfussenegger/nvim-dap'
+  use {'rcarriga/nvim-dap-ui', requires= {'mfussenegger/nvim-dap'}}
+  use 'theHamsta/nvim-dap-virtual-text'
+
 end)
