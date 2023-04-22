@@ -1,4 +1,5 @@
 local dap = require('dap')
+local dapui = require('dapui')
 local keymap = vim.keymap
 
 dap.adapters.cppdbg = {
@@ -23,31 +24,35 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 
-keymap.set({"n", "i", "v"}, "<F5>", "<Cmd>lua require'dap'.continue()<CR>", {noremap = true, silent = true})
-keymap.set({"n", "i", "v"}, "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", {noremap = true, silent = true})
-keymap.set({"n", "i", "v"}, "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", {noremap = true, silent = true})
-keymap.set({"n", "i", "v"}, "<F9>", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", {noremap = true, silent = true})
+keymap.set({ "n", "i", "v" }, "<F5>", "<Cmd>lua require'dap'.continue()<CR>", { noremap = true, silent = true })
+keymap.set({ "n", "i", "v" }, "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", { noremap = true, silent = true })
+keymap.set({ "n", "i", "v" }, "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", { noremap = true, silent = true })
+keymap.set({ "n", "i", "v" }, "<F12>", function()
+  dap.terminate()
+  dapui.close()
+end, { noremap = true, silent = true })
+keymap.set({ "n", "i", "v" }, "<F9>", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", { noremap = true, silent = true })
 
 -- Colorful dap
 local dap_breakpoint_color = {
   breakpoint = {
     ctermbg = 0,
-    fg='#993939',
-    bg='#31353f'
+    fg = '#993939',
+    bg = '#31353f'
   },
   logpoint = {
     ctermbg = 0,
-    fg='#61afef',
-    bg='#31353f'
+    fg = '#61afef',
+    bg = '#31353f'
   },
   stopped = {
     ctermbg = 0,
-    fg='#98c379',
-    bg='#31353f'
+    fg = '#98c379',
+    bg = '#31353f'
   },
 }
 
-local nvim_set_hl = vim .api.nvim_set_hl
+local nvim_set_hl = vim.api.nvim_set_hl
 nvim_set_hl(0, 'DapBreakpoint', dap_breakpoint_color.breakpoint)
 nvim_set_hl(0, 'DapLogPoint', dap_breakpoint_color.logpoint)
 nvim_set_hl(0, 'DapStopped', dap_breakpoint_color.stopped)
