@@ -81,11 +81,12 @@ nvim_lsp.flow.setup {
 
 require("typescript").setup({
   disable_commands = false, -- prevent the plugin from creating Vim commands
-  debug = false, -- enable debug logging for commands
+  debug = false,            -- enable debug logging for commands
   go_to_source_definition = {
-    fallback = true, -- fall back to standard LSP definition on failure
+    fallback = true,        -- fall back to standard LSP definition on failure
   },
-  server = { -- pass options to lspconfig's setup method
+  server = {
+    -- pass options to lspconfig's setup method
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').default_capabilities()
   },
@@ -108,7 +109,6 @@ nvim_lsp.luau_lsp.setup {
         -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
-
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
@@ -133,13 +133,21 @@ nvim_lsp.astro.setup {
   capabilities = capabilities
 }
 
+local clangd_cap = require('cmp_nvim_lsp').default_capabilities()
+clangd_cap.offsetEncoding = "utf-8"
+
+nvim_lsp.clangd.setup {
+  capabilities = clangd_cap,
+  rootPattern = { "compile_commands.json", "compile_flags.txt", ".git" },
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-}
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+  }
 )
 
 -- Diagnostic symbols in the sign column (gutter)
