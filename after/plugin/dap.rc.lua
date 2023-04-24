@@ -3,7 +3,8 @@ local dapui = require('dapui')
 local keymap = vim.keymap
 
 dap.adapters.cppdbg = {
-  command = "C:/Users/shotu/AppData/Local/nvim-data/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7.exe",
+  command =
+  "C:/Users/lizard.liang.WATCHSOFT/AppData/Local/nvim-data/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7.exe",
   id = 'cppdbg',
   type = 'executable',
   options = { detached = false },
@@ -97,3 +98,49 @@ sign_define('DapBreakpointCondition', dap_breakpoint.condition)
 sign_define('DapBreakpointRejected', dap_breakpoint.rejected)
 sign_define('DapLogPoint', dap_breakpoint.logpoint)
 sign_define('DapStopped', dap_breakpoint.stopped)
+
+function _G.dapRunConfigWithArgs()
+  local ft = vim.bo.filetype
+  if ft == "" then
+    print("Filetype option is required to determine which dap configs are available")
+    return
+  end
+  local configs = dap.configurations[ft]
+  if configs == nil then
+    print("Filetype \"" .. ft .. "\" has no dap configs")
+    return
+  end
+  local mConfig = nil
+  vim.ui.select(
+    configs,
+    {
+      prompt = "Select config to run: ",
+      format_item = function(config)
+        return config.name
+      end
+    },
+    function(config)
+      mConfig = config
+    end
+  )
+
+  -- redraw to make ui selector disappear
+  vim.api.nvim_command("redraw")
+
+  if mConfig == nil then
+    return
+  end
+  vim.ui.input(
+    {
+      prompt = mConfig.name .. " - with args: ",
+    },
+    function(input)
+      if input == nil then
+        return
+      end
+      local args = vim.split(input, ' ', true)
+      mConfig.args = args
+      dap.run(mConfig)
+    end
+  )
+end
