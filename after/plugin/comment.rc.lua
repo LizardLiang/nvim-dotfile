@@ -3,10 +3,10 @@ if (not status) then return end
 
 comment.setup {
   toggler = {
-    line = '<C-_>',
+    line = '<leader>/',
   },
   opleader = {
-    line = '<C-_>',
+    line = '<leader>/',
   },
   pre_hook = function(ctx)
     -- Only calculate commentstring for tsx filetypes
