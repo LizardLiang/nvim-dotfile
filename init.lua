@@ -13,7 +13,6 @@ require('lizard.map')
 require('lizard.plugins')
 require('lizard.windows')
 
-
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
 --
