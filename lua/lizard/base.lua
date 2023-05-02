@@ -56,3 +56,5 @@ vim.g.netrw_browser_split = 4
 vim.g.netrw_altv = 1
 vim.g.netrw_winsize = 20
 
+-- QuickScope
+vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
