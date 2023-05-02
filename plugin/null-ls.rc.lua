@@ -22,6 +22,7 @@ null_ls.setup {
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.formatting.black.with({ extra_args = { "--line-length=79" } }),
     null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.clang_format,
     require("typescript.extensions.null-ls.code-actions")
   },
   on_attach = function(client, bufnr)
