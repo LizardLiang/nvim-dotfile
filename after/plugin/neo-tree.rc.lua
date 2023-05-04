@@ -210,4 +210,4 @@ require('neo-tree').setup({
   }
 })
 
-vim.keymap.set('n', '<C-n>', '<Cmd>Neotree<cr>')
+vim.keymap.set('n', '<leader>n', '<Cmd>Neotree<cr>')
