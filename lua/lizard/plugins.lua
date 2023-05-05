@@ -123,4 +123,10 @@ packer.startup(function(use)
 
   -- Quickscope
   use 'unblevable/quick-scope'
+
+  -- Hop
+  use {
+    'phaazon/hop.nvim',
+    branch='v2'
+  }
 end)
