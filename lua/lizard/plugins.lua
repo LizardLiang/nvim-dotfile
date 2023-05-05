@@ -129,4 +129,7 @@ packer.startup(function(use)
     'phaazon/hop.nvim',
     branch='v2'
   }
+
+  -- undotree
+  use 'mbbill/undotree'
 end)
