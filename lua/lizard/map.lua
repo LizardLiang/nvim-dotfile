@@ -58,3 +58,5 @@ keymap.set('t', '<C-t><ESC>', '<C-\\><C-n>')
 -- duplicate block
 keymap.set('v', '<C-S-j>', ":t'><Return>", {noremap= true, silent= true})
 
+keymap.set('v', '>', '>gv')
+keymap.set('v', '<', '<gv')
