@@ -168,4 +168,7 @@ packer.startup(function(use)
 			require("alpha").setup(require("alpha.themes.dashboard").config)
 		end,
 	})
+
+  -- Tmux & neovim navigator
+  use {"alexghergh/nvim-tmux-navigation"}
 end)
