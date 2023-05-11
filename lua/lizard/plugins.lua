@@ -1,3 +1,4 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -61,6 +62,7 @@ local plugins = {
 		build = function()
 			vim.fn["mkdp#util#install"]()
 		end,
+		ft = "markdown",
 	},
 	"akinsho/nvim-bufferline.lua",
 	"github/copilot.vim",
@@ -118,8 +120,6 @@ local plugins = {
 	-- Duplicate
 	"smjonas/duplicate.nvim",
 
-	-- Multi cursor
-	-- use 'mg979/vim-visual-multi'
 	-- Symbol outlines
 	{ "simrat39/symbols-outline.nvim" },
 
