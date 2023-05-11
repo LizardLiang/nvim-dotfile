@@ -6,4 +6,4 @@ session.setup({
 	autoload_mode = config.AutoloadMode.Disabled,
 })
 
-keymap.set("n", "<leader>sl", "<cmd>SessionManager load_last_session<CR>", { desc = "Load [S]ession [L]ast" })
+keymap.set("n", "<leader>sl", "<cmd>SessionManager load_current_dir_session<CR>", { desc = "Load [S]ession [L]ast" })
