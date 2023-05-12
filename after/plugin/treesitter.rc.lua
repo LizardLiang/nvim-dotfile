@@ -11,8 +11,8 @@ ts.setup {
     disable = {},
   },
   ensure_installed = {
-    -- "markdown",
-    -- "markdown_inline",
+    "markdown",
+    "markdown_inline",
     "tsx",
     "toml",
     "json",
