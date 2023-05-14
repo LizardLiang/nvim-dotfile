@@ -133,7 +133,7 @@ nvim_lsp.cssls.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.astro.setup({
+nvim_lsp.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })

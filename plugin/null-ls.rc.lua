@@ -26,6 +26,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.isort,
 		null_ls.builtins.formatting.clang_format,
 		null_ls.builtins.formatting.stylua,
+		-- null_ls.builtins.diagnostics.pylint,
 		require("typescript.extensions.null-ls.code-actions"),
 	},
 	on_attach = function(client, bufnr)
