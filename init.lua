@@ -4,14 +4,15 @@ require("lizard.map")
 require("lizard.plugins")
 
 local has = vim.fn.has
-local is_win = has "win32"
-local is_wsl = has "wsl"
+local is_win = has("win32")
+local is_wsl = has("wsl")
 
 if is_win == 1 then
-  require("lizard.windows")
+	require("lizard.windows")
 end
 if is_wsl == 1 then
-  require("lizard.wsl")
+	require("lizard.windows")
+	require("lizard.wsl")
 end
 
 -- See `:help vim.o`
@@ -57,74 +58,74 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require("nvim-treesitter.configs").setup({
-  -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { "c", "cpp", "lua", "python", "typescript" },
+	-- Add languages to be installed here that you want installed for treesitter
+	ensure_installed = { "c", "cpp", "lua", "python", "typescript" },
 
-  highlight = { enable = true },
-  indent = { enable = true, disable = { "python" } },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<c-space>",
-      node_incremental = "<c-space>",
-      scope_incremental = "<c-s>",
-      node_decremental = "<c-backspace>",
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["aa"] = "@parameter.outer",
-        ["ia"] = "@parameter.inner",
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
-      },
-      goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>a"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>A"] = "@parameter.inner",
-      },
-    },
-  },
+	highlight = { enable = true },
+	indent = { enable = true, disable = { "python" } },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<c-space>",
+			node_incremental = "<c-space>",
+			scope_incremental = "<c-s>",
+			node_decremental = "<c-backspace>",
+		},
+	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+			},
+		},
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {
+				["]m"] = "@function.outer",
+				["]]"] = "@class.outer",
+			},
+			goto_next_end = {
+				["]M"] = "@function.outer",
+				["]["] = "@class.outer",
+			},
+			goto_previous_start = {
+				["[m"] = "@function.outer",
+				["[["] = "@class.outer",
+			},
+			goto_previous_end = {
+				["[M"] = "@function.outer",
+				["[]"] = "@class.outer",
+			},
+		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>a"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>A"] = "@parameter.inner",
+			},
+		},
+	},
 })
 
 -- Diagnostic keymaps
@@ -134,24 +135,24 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
-  local nmap = function(keys, func, desc)
-    if desc then
-      desc = "LSP: " .. desc
-    end
+	-- NOTE: Remember that lua is a real programming language, and as such it is possible
+	-- to define small helper and utility functions so you don't have to repeat yourself
+	-- many times.
+	--
+	-- In this case, we create a function that lets us more easily define mappings specific
+	-- for LSP related items. It sets the mode, buffer and description for us each time.
+	local nmap = function(keys, func, desc)
+		if desc then
+			desc = "LSP: " .. desc
+		end
 
-    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-  end
+		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+	end
 
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-    vim.lsp.buf.format()
-  end, { desc = "Format current buffer with LSP" })
+	-- Create a command `:Format` local to the LSP buffer
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+		vim.lsp.buf.format()
+	end, { desc = "Format current buffer with LSP" })
 end
 
 -- Setup mason so it can manage external tooling
