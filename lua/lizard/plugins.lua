@@ -132,7 +132,7 @@ local plugins = {
 	"voldikss/vim-floaterm",
 
 	-- Quickscope
-	"unblevable/quick-scope",
+	-- "unblevable/quick-scope",
 
 	-- Hop
 	{
