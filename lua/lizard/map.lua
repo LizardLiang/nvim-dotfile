@@ -37,7 +37,7 @@ keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 
 -- Toggle comment
-keymap.set("n", "<leader>/", "gcc")
+-- keymap.set("n", "<leader>/", "gcc")
 
 -- Toggle window
 keymap.set("n", "<C-h>", "<C-w>h")
