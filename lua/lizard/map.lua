@@ -60,3 +60,6 @@ keymap.set("v", "<C-S-j>", ":t'><Return>", { noremap = true, silent = true })
 
 keymap.set("v", ">", ">gv")
 keymap.set("v", "<", "<gv")
+
+-- buffer operatoin
+keymap.set("n", "<leader>bt", "<C-6>", { desc = "[B]uffer [T]oggle" })

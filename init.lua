@@ -1,7 +1,7 @@
 require("lizard.base")
 require("lizard.highlights")
-require("lizard.map")
 require("lizard.plugins")
+require("lizard.map")
 
 local has = vim.fn.has
 local is_win = has("win32")
