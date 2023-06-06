@@ -97,11 +97,6 @@ require("typescript").setup({
 	},
 })
 
--- nvim_lsp.sourcekit.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
--- }
-
 nvim_lsp.luau_lsp.setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
