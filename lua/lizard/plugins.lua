@@ -140,6 +140,12 @@ local plugins = {
 		branch = "v2",
 	},
 
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+
 	-- undotree
 	"mbbill/undotree",
 
