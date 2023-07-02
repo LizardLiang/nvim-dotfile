@@ -77,13 +77,6 @@ nvim_lsp.flow.setup({
 	capabilities = capabilities,
 })
 
--- nvim_lsp.tsserver.setup {
---   on_attach = on_attach,
---   -- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
---   -- cmd = { "typescript-language-server", "--stdio" },
---   capabilities = require('cmp_nvim_lsp').default_capabilities(),
--- }
-
 require("typescript").setup({
 	disable_commands = false, -- prevent the plugin from creating Vim commands
 	debug = false, -- enable debug logging for commands
