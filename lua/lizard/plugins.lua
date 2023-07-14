@@ -175,6 +175,9 @@ local plugins = {
 
 	-- Tmux & neovim navigator
 	"alexghergh/nvim-tmux-navigation",
+
+	-- csharp
+	"OmniSharp/omnisharp-vim",
 }
 
 local opts = {}
