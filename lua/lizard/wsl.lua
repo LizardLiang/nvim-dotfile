@@ -10,22 +10,22 @@
 -- vim.g.clipboard = {
 -- 	name = "WslClipboard",
 -- 	copy = {
--- 		["*"] = "clip.exe",
--- 		["+"] = "clip.exe",
+-- 		["*"] = "/mnt/c/Windows/System32/clip.exe",
+-- 		["+"] = "/mnt/c/Windows/System32/clip.exe",
 -- 	},
 -- 	paste = {
--- 		["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
--- 		["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+-- 		["+"] = "/mnt/c/Windows/System32/clip.exe",
+-- 		["*"] = "/mnt/c/Windows/System32/clip.exe",
 -- 	},
 -- 	cache_enabled = 0,
 -- }
 
-vim.s.clip = "/mnt/c/Windows/System32/clip.exe"
-if executable(vim.s.clip) then
-	vim.cmd([[
-    augroup Yank
-    autocmd!
-    autocmd TextYankPost * :call system('/mnt/c/Windows/System32/clip.exe ', @")
-    augroup END
-  ]])
-end
+-- local clip = "/mnt/c/Windows/System32/clip.exe"
+-- if executable(clip) then
+-- 	vim.cmd([[
+--     augroup Yank
+--     autocmd!
+--     autocmd TextYankPost * :call system('/mnt/c/Windows/System32/clip.exe ', @")
+--     augroup END
+--   ]])
+-- end
