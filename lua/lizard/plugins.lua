@@ -178,6 +178,25 @@ local plugins = {
 
 	-- csharp
 	"OmniSharp/omnisharp-vim",
+
+	-- better notify
+	"rcarriga/nvim-notify",
+
+	-- dressing better select
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
+
+	-- yarp
+	"roxma/vim-hug-neovim-rpc",
+	{
+		"roxma/nvim-yarp",
+		config = function() end,
+	},
+
+	-- better cmdline
+	{ "gelguy/wilder.nvim", build = ":UpdateRemotePlugins" },
 }
 
 local opts = {}
