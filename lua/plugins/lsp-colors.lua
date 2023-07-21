@@ -1,5 +1,6 @@
 return {
 	"folke/lsp-colors.nvim",
+	enabled = false,
 	module = false,
 	config = function()
 		local status, colors = pcall(require, "lsp-colors")
