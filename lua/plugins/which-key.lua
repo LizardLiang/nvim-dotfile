@@ -1,3 +1,4 @@
+-- Which Key
 return {
 	"folke/which-key.nvim",
 	config = function()
