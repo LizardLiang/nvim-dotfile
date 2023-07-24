@@ -132,11 +132,15 @@ return {
 		})
 
 		local clangd_cap = require("cmp_nvim_lsp").default_capabilities()
-		clangd_cap.offsetEncoding = "utf-8"
+		clangd_cap.offsetEncoding = { "utf-16" }
 
 		nvim_lsp.clangd.setup({
 			capabilities = clangd_cap,
 			rootPattern = { "compile_commands.json", "compile_flags.txt", ".git" },
+			cmd = {
+				"clangd",
+				"--offset-encoding=UTF-16",
+			},
 		})
 
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {

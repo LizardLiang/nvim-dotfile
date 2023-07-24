@@ -25,8 +25,8 @@ return {
 				null_ls.builtins.diagnostics.eslint_d.with({
 					diagnostics_format = "[eslint] #{m}\n(#{c})",
 				}),
-				null_ls.builtins.diagnostics.fish,
-				null_ls.builtins.diagnostics.ruff,
+				-- null_ls.builtins.diagnostics.fish,
+				-- null_ls.builtins.diagnostics.ruff,
 				null_ls.builtins.formatting.black.with({ extra_args = { "--line-length=79" } }),
 				null_ls.builtins.formatting.isort,
 				null_ls.builtins.formatting.clang_format,
