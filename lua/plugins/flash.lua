@@ -1,6 +1,6 @@
 return {
 	"folke/flash.nvim",
-	keys = { "<leader>hf", "f" },
+	keys = { "<leader>hf", "f", "R", "v" },
 	opts = {},
 	config = function()
 		local flash = require("flash")
@@ -18,7 +18,7 @@ return {
 			flash.remote()
 		end, { desc = "[H]op Flash [R]emote", silent = true })
 
-		keymap.set({ "o", "x" }, "R", function()
+		keymap.set({ "o", "x", "v" }, "R", function()
 			flash.treesitter_search()
 		end, { desc = "Flash Treesitter Search", silent = true })
 

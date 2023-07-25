@@ -15,8 +15,8 @@ return {
 		ft = "markdown",
 	},
 
-	-- prettier
-	"jose-elias-alvarez/typescript.nvim",
+	-- prettier this is going to be archived soon
+	-- "jose-elias-alvarez/typescript.nvim",
 
 	-- syntax highlighting for python
 	-- use 'sheerun/vim-polyglot'

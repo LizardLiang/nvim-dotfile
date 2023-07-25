@@ -20,7 +20,7 @@ return {
 
 		lspconfig.setup_handlers({
 			function(server_name) -- default handler (optional)
-				require("lspconfig")[server_name].setup({})
+				-- require("lspconfig")[server_name].setup({})
 			end,
 			["clangd"] = function()
 				config.clangd.setup({

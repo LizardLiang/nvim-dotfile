@@ -82,16 +82,10 @@ return {
 			capabilities = capabilities,
 		})
 
-		require("typescript").setup({
-			disable_commands = false, -- prevent the plugin from creating Vim commands
-			debug = false, -- enable debug logging for commands
-			go_to_source_definition = {
-				fallback = true, -- fall back to standard LSP definition on failure
-			},
-			server = {
-				-- pass options to lspconfig's setup method
-				on_attach = on_attach,
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		require("typescript-tools").setup({
+			on_attach = on_attach,
+			settings = {
+				expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused" },
 			},
 		})
 
