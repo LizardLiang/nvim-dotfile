@@ -25,10 +25,10 @@ keymap.set("n", "sv", ":vsplit<Return><C-w>w")
 keymap.set("n", "<Space>", "<C-w>w")
 
 -- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+keymap.set("n", "<C-left>", "<C-w><")
+keymap.set("n", "<C-right>", "<C-w>>")
+keymap.set("n", "<C-up>", "<C-w>+")
+keymap.set("n", "<C-down>", "<C-w>-")
 
 -- Move lines arround
 keymap.set("n", "<A-k>", ":m .-2<CR>==")
