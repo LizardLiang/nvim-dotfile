@@ -35,6 +35,7 @@ return {
 		ensure_installed = {
 			"bash",
 			"c",
+			"cpp",
 			"html",
 			"javascript",
 			"json",
@@ -45,7 +46,7 @@ return {
 			"markdown_inline",
 			"python",
 			"query",
-			"regex",
+			-- "regex",
 			"tsx",
 			"typescript",
 			"vim",
