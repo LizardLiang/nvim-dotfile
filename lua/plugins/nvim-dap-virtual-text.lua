@@ -1,5 +1,6 @@
 return {
 	"theHamsta/nvim-dap-virtual-text",
+	event = "VeryLazy",
 	config = function()
 		local dap_virtual_text = require("nvim-dap-virtual-text")
 

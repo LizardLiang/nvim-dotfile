@@ -110,7 +110,8 @@ return {
 			builtin.grep_string()
 		end, { desc = "[F]ind [C]ode" })
 
-		vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>ff", require("telescope.builtin").git_files, { desc = "[F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>fff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 		vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set(
 			"n",
@@ -120,5 +121,6 @@ return {
 		)
 		-- vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 		vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
+		vim.keymap.set("n", "<leader>fl", require("telescope.builtin").resume, { desc = "[F]ind [L]ast result" })
 	end,
 }
