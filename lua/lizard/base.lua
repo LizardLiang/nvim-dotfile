@@ -63,6 +63,7 @@ vim.g.netrw_winsize = 20
 -- 	callback = function()
 -- 		vim.highlight.on_yank()
 -- 	end,
--- 	group = highlight_group,
+--  	group = highlight_group,
 -- 	pattern = "*",
 -- })
+
