@@ -26,13 +26,7 @@ return {
 	-- add any custom options here
 	opts = {},
 	config = function()
-		require("persistence").setup({
-			dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"),
-			options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp" },
-			pre_save = function()
-				print("buffer saved")
-			end,
-		})
+		require("persistence").setup()
 		local keymap = vim.keymap
 		keymap.set(
 			"n",
