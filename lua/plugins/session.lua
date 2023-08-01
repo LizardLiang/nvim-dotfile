@@ -21,12 +21,12 @@
 return {
 	-- Lua
 	"folke/persistence.nvim",
-	-- event = "BufReadPre", -- this will only start session saving when an actual file was opened
+	event = "BufReadPre", -- this will only start session saving when an actual file was opened
 	keys = { "<leader>sl" },
 	-- add any custom options here
 	opts = {},
 	config = function()
-		require("persistence").setup()
+		require("persistence").setup({})
 		local keymap = vim.keymap
 		keymap.set(
 			"n",
@@ -37,5 +37,8 @@ return {
 			-- "<cmd>SessionManager load_current_dir_session<CR>",
 			{ desc = "Load [S]ession [L]ast" }
 		)
+		keymap.set("n", "<leader>ss", function()
+			require("persistence").save()
+		end, { desc = "[S]ave [S]ession" })
 	end,
 }
