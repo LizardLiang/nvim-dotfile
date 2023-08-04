@@ -120,6 +120,8 @@ return {
 			capabilities = capabilities,
 		})
 
+		nvim_lsp.csharp_ls.setup({})
+
 		local clangd_cap = require("cmp_nvim_lsp").default_capabilities()
 		clangd_cap.offsetEncoding = { "utf-16" }
 

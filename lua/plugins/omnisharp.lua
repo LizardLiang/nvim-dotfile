@@ -1,4 +1,4 @@
 return {
 	"OmniSharp/omnisharp-vim",
-	event = "VeryLazy",
+	filetypes = { "cs" },
 }
