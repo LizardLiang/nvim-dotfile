@@ -1,11 +1,13 @@
 return {
 	"gelguy/wilder.nvim",
+	enabled = function()
+		return not vim.g.vscode
+	end,
 	build = ":UpdateRemotePlugins",
 	event = "VeryLazy",
 	keys = { ":" },
 	config = function()
 		local wilder = require("wilder")
-
 		wilder.setup({ modes = { ":", "/", "?" } })
 		wilder.set_option(
 			"renderer",
