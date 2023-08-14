@@ -5,6 +5,8 @@ return {
 		vim.g.OmniSharp_server_stdio = 1
 		vim.g.OmniSharp_start_server = 1
 		-- vim.g.OmniSharp_server_path = "C:\\Users\\lizard.liang.WATCHSOFT\\scoop\\shims\\omnisharp.exe"
+		vim.g.OmniSharp_highlighting = 0
+		vim.g.OmniSharp_selector_ui = "fzf"
 
 		local keymap = vim.keymap
 		keymap.set(
