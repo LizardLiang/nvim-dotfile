@@ -1,5 +1,6 @@
 return {
 	"OmniSharp/omnisharp-vim",
+	enabled = false,
 	filetypes = { "cs" },
 	config = function()
 		vim.g.OmniSharp_server_stdio = 1
