@@ -1,6 +1,7 @@
 -- nvim-dap
 return {
 	"mfussenegger/nvim-dap",
+	keys = { "<F5>", "<F9>" },
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
