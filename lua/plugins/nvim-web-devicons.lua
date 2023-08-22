@@ -1,5 +1,6 @@
 return {
 	"kyazdani42/nvim-web-devicons", -- File icons
+	event = "VeryLazy",
 	config = function()
 		local status, icons = pcall(require, "nvim-web-devicons")
 		if not status then

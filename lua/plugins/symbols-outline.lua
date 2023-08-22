@@ -1,6 +1,7 @@
 -- Symbol outlines
 return {
 	"simrat39/symbols-outline.nvim",
+	event = "BufReadPre",
 	config = function()
 		local symbols_outline = require("symbols-outline").setup()
 		local keymap = vim.keymap

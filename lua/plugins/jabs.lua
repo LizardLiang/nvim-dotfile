@@ -1,6 +1,7 @@
 return {
 	-- Better buffer
 	"matbme/JABS.nvim",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local jabs = require("jabs")
 		local keymap = vim.keymap

@@ -1,5 +1,6 @@
 return {
 	"williamboman/mason.nvim",
+	event = "BufReadPre",
 	dependencies = { "nvim-lspconfig" },
 	config = function()
 		local status, mason = pcall(require, "mason")

@@ -1,5 +1,6 @@
 return {
 	"dinhhuy258/git.nvim", -- For git blame & browse
+	event = "BufReadPre",
 	config = function()
 		local status, git = pcall(require, "git")
 		if not status then
