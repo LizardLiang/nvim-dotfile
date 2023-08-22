@@ -5,7 +5,8 @@ return {
 	-- },
 	{
 		"jcdickinson/codeium.nvim",
-		event = "BufRead",
+		enabled = false,
+		event = "BufReadPre",
 		dependencies = {
 			-- "jcdickinson/http.nvim",
 			"nvim-lua/plenary.nvim",
