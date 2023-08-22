@@ -31,7 +31,10 @@ return {
 				{ name = "codeium" },
 			}),
 			formatting = {
-				format = lspkind.cmp_format({ with_text = false, maxwidth = 50, symbol_map = { Codeium = "" } }),
+				format = lspkind.cmp_format({
+					with_text = false,
+					maxwidth = 50,--[[ , symbol_map = { Codeium = "" } ]]
+				}),
 			},
 		})
 
