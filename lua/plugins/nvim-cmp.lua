@@ -28,7 +28,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "luasnip" },
-				{ name = "codeium" },
+				-- { name = "codeium" },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
