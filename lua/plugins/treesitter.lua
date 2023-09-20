@@ -1,29 +1,26 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	-- dependencies = {
-	-- 	{
-	-- 		"nvim-treesitter/nvim-treesitter-textobjects",
-	-- 		init = function()
-	-- 			-- disable rtp plugin, as we only need its queries for mini.ai
-	-- 			-- In case other textobject modules are enabled, we will load them
-	-- 			-- once nvim-treesitter is loaded
-	-- 			require("lazy.core.loader").disable_rtp_plugin("nvim-treesitter-textobjects")
-	-- 			load_textobjects = true
-	-- 		end,
-	-- 	},
-	-- },
 	event = { "BufReadPost", "BufNewFile" },
+	dependencies = {
+		{
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			init = function()
+				-- disable rtp plugin, as we only need its queries for mini.ai
+				-- In case other textobject modules are enabled, we will load them
+				-- once nvim-treesitter is loaded
+			end,
+		},
+	},
 	cmd = { "TSUpdateSync" },
 	config = function(_, opts)
 		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-		parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+		-- parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
 
 		if type(opts.ensure_installed) == "table" then
 			---@type table<string, boolean>
 			local added = {}
 			opts.ensure_installed = vim.tbl_filter(function(lang)
-				print(lang)
 				if added[lang] then
 					return false
 				end
@@ -35,6 +32,7 @@ return {
 		require("nvim-treesitter.configs").setup(opts)
 	end,
 	opts = {
+		highlight = { enable = true },
 		indent = { enable = true },
 		ensure_installed = {
 			"bash",
@@ -78,6 +76,8 @@ return {
 					["if"] = "@function.inner",
 					["ac"] = "@class.outer",
 					["ic"] = "@class.inner",
+					["ar"] = "@return.outer",
+					["ir"] = "@return.inner",
 				},
 			},
 			move = {
@@ -111,7 +111,6 @@ return {
 			},
 			highlight = {
 				enable = true,
-				disable = {},
 			},
 			autotag = {
 				enable = true,
