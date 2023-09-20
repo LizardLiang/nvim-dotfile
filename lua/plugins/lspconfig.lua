@@ -83,11 +83,16 @@ return {
 			capabilities = capabilities,
 		})
 
-		require("typescript-tools").setup({
+		-- require("typescript-tools").setup({
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused" },
+		-- 	},
+		-- })
+
+		nvim_lsp.tsserver.setup({
 			on_attach = on_attach,
-			settings = {
-				expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused" },
-			},
+			capabilities = capabilities,
 		})
 
 		nvim_lsp.luau_lsp.setup({
