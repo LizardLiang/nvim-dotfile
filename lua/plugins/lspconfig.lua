@@ -1,4 +1,5 @@
 local utils = require("constants.omnisharp")
+local cssls = require("constants.cssls")
 -- LSP
 return {
 	"neovim/nvim-lspconfig",
@@ -83,17 +84,18 @@ return {
 			capabilities = capabilities,
 		})
 
-		-- require("typescript-tools").setup({
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused" },
-		-- 	},
-		-- })
-
-		nvim_lsp.tsserver.setup({
+		require("typescript-tools").setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+			settings = {
+				expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused" },
+			},
 		})
+
+		-- nvim_lsp.tsserver.setup({
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- })
 
 		nvim_lsp.luau_lsp.setup({
 			capabilities = capabilities,
@@ -176,7 +178,9 @@ return {
 			rootPattern = { "compile_commands.json", "compile_flags.txt", ".git" },
 			cmd = {
 				"clangd",
-				"--offset-encoding=UTF-16",
+				"--offset-encoding=utf-16",
+				"--all-scopes-completion",
+				"--completion-style=detailed",
 			},
 		})
 
