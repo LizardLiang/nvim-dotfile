@@ -33,6 +33,14 @@ return {
 		vim.keymap.set("n", "<leader>gt", "<Cmd>Lspsaga peek_type_definition<CR>", opts)
 		vim.keymap.set("n", "<leader>gT", "<Cmd>Lspsaga goto_type_definition<CR>", opts)
 
+		vim.cmd([[
+  augroup FileTypeSpecificUnmap
+    autocmd!
+    autocmd FileType cs :lua vim.api.nvim_del_keymap('n', 'gd')
+		autocmd FileType cs :lua vim.keymap.set("n", "gd", "<Cmd>lua require('omnisharp_extended').telescope_lsp_definitions()<CR>", opts)
+  augroup END
+  ]])
+
 		-- code action
 		local codeaction = require("lspsaga.codeaction")
 		vim.keymap.set("n", "<leader>ca", function()

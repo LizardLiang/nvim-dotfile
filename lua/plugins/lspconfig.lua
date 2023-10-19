@@ -132,13 +132,21 @@ return {
 		-- 	on_attach = on_attach,
 		-- 	capabilities = capabilities,
 		-- })
-		--
+
+		local pid = vim.fn.getpid()
+		local omnisharp_bin =
+			"C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim-data\\mason\\packages\\omnisharp\\libexec\\OmniSharp.exe"
+
 		nvim_lsp.omnisharp.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
-			cmd = {
-				"dotnet",
-				utils.getPath(),
+			-- cmd = {
+			-- 	"dotnet",
+			-- 	utils.getPath(),
+			-- },
+			cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+			handlers = {
+				["textDocument/definition"] = require("omnisharp_extended").handler,
 			},
 			-- Enables support for reading code style, naming convention and analyzer
 			-- settings from .editorconfig.
