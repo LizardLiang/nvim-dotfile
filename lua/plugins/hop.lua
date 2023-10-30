@@ -3,6 +3,7 @@ return {
   "phaazon/hop.nvim",
   branch = "v2",
   event = "BufRead",
+  vscode = true,
   config = function()
     local hop = require("hop")
     local directions = require("hop.hint").HintDirection
