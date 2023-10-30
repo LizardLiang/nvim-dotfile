@@ -10,18 +10,10 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-  s({ trig = "bc" }, {
+  s({ trig = "doc" }, {
     t({
       "/**************************************************",
       "**************************************************/",
     }),
   }),
-  s(
-    { trig = "bd" }, -- Table of snippet parameters
-    { -- Table of snippet nodes
-      t("/**************** "),
-      i(1),
-      t(" ***************/"),
-    }
-  ),
 }

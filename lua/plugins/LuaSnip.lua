@@ -49,7 +49,5 @@ return {
       jsDocReturnSnippet,
       arrowfunction,
     })
-
-    print("L3MON4D3")
   end,
 }
