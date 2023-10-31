@@ -1,7 +1,7 @@
 return {
   "LizardLiang/simple-scripts.nvim",
   ft = { "c", "cpp" },
-  keys = { "clg" },
+  keys = { "clg", "<leader>fc" },
   vscode = true,
   config = function()
     local keymap = vim.keymap
@@ -23,6 +23,12 @@ return {
       "clg",
       script.insert_debug_message,
       { noremap = true, silent = true, desc = "Insert debug message" }
+    )
+    keymap.set(
+      "n",
+      "<C-c>",
+      script.goto_css_definition,
+      { noremap = true, silent = true, desc = "Goto css definition" }
     )
   end,
 }
