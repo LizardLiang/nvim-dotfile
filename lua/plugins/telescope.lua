@@ -16,17 +16,11 @@ return {
       end,
       desc = "[F]ind [L]ast result",
     },
-    {
-      "<leader><leader>",
-      false,
-    },
   },
   config = function()
     local telescope = require("telescope")
 
     local actions = require("telescope.actions")
-    local builtin = require("telescope.builtin")
-    local trouble = require("trouble.providers.telescope")
 
     local function telescope_buffer_dir()
       return vim.fn.expand("%:p:h")
