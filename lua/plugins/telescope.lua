@@ -16,8 +16,15 @@ return {
       end,
       desc = "[F]ind [L]ast result",
     },
+    {
+      ";;",
+      function()
+        local builtin = require("telescope.builtin")
+        builtin.resume()
+      end,
+    },
   },
-  config = function()
+  config = function(_, opts)
     local telescope = require("telescope")
 
     local actions = require("telescope.actions")
@@ -27,6 +34,24 @@ return {
     end
 
     local fb_actions = require("telescope").extensions.file_browser.actions
+
+    opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
+      wrap_results = true,
+      layout_strategy = "horizontal",
+      layout_config = "horizontal",
+      sorting_strategy = "ascending",
+      winblend = 0,
+      mappings = {
+        n = {},
+      },
+    })
+    opts.pickers = {
+      disgnostics = {
+        theme = "ivy",
+        initial_mode = "normal",
+        layout_config = { preview_cutoff = 9999 },
+      },
+    }
 
     telescope.setup({
       defaults = {
@@ -62,6 +87,16 @@ return {
               ["/"] = function()
                 vim.cmd("startinsert")
               end,
+              ["<C-u>"] = function(prompt_bufnr)
+                for i = 1, 10 do
+                  action.move_selection_previous(prompt_bufnr)
+                end
+              end,
+              ["<C-d>"] = function(prompt_bufnr)
+                action.move_selection_next(prompt_bufnr)
+              end,
+              ["<PageUp>"] = actions.preview_scrolling_up,
+              ["<PageDown>"] = actions.preview_scrolling_down,
             },
           },
         },
