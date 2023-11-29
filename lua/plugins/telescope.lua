@@ -44,6 +44,7 @@ return {
       mappings = {
         n = {},
       },
+      path_display = { "smart" },
     })
     opts.pickers = {
       disgnostics = {
@@ -61,6 +62,7 @@ return {
             ["<leader>w"] = "which_key",
           },
         },
+        path_display = { "smart" },
       },
       file_ignore_patterns = {
         "./node_modules/*",
