@@ -51,3 +51,24 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end)
+
+local script = require("simple-scripts")
+keymap.set(
+  "n",
+  "<leader>tf",
+  require("simple-scripts").toggle,
+  { noremap = true, silent = true, desc = "[T]oggle [F]ile" }
+)
+keymap.set(
+  "n",
+  "<leader>tg",
+  script.generate_cpp_header,
+  { noremap = true, silent = true, desc = "Generate function definition" }
+)
+keymap.set("n", "clg", script.insert_debug_message, { noremap = true, silent = true, desc = "Insert debug message" })
+keymap.set(
+  "n",
+  "<leader>fC",
+  script.goto_css_definition,
+  { noremap = true, silent = true, desc = "Goto css definition" }
+)

@@ -1,5 +1,6 @@
 return {
   "LizardLiang/simple-scripts.nvim",
+  enabled = false,
   ft = { "c", "cpp" },
   keys = { "clg", "<leader>fC" },
   vscode = true,

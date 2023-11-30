@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "jsonc" },
+  pattern = { "json", "jsonc", "gyp" },
   callback = function()
     vim.wo.spell = false
     vim.wo.conceallevel = 0
