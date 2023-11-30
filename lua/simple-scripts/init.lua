@@ -85,6 +85,10 @@ M.generate_cpp_header = function()
             ] @return.type
             declarator: [
               (function_declarator
+                declarator: (identifier) @function.name
+                parameters: (parameter_list) @params
+              ) 
+              (function_declarator
                 declarator: (qualified_identifier
                   name: (identifier) @function.name
                 )
@@ -93,7 +97,7 @@ M.generate_cpp_header = function()
               (pointer_declarator
                 declarator: (function_declarator
                   declarator: (qualified_identifier
-                  name: (identifier) @function.name
+                    name: (identifier) @function.name
                   )
                   parameters: (parameter_list) @params
                 ) 
