@@ -21,7 +21,7 @@ map({ "n" }, "-", "<C-x>")
 map({ "n" }, "dw", "vb_d")
 
 -- Select all
-map({ "n" }, "<C-a>", "gg<S-v>G")
+map({ "n" }, "vae", "gg<S-v>G")
 
 -- Jumplist
 map({ "n" }, "<C-m>", "<C-i>", opts)
