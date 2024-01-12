@@ -4,69 +4,35 @@ local M = {}
 M.toggle = function()
   local filename = vim.fn.expand("%:t:r")
   local extension = vim.fn.expand("%:e")
-  local current_file = vim.api.nvim_buf_get_name(0)
-  local path_sep = "/"
-  local file_sep = "%." -- Pattern to split file name and extension
+  local dir = vim.fn.expand("%:p:h")
 
-  -- Function to split a string by a separator
-  local function split(str, sep)
-    local fields = {}
-    str:gsub("([^" .. sep .. "]+)", function(c)
-      fields[#fields + 1] = c
-    end)
-    return fields
-  end
+  local source_extensions = { "cpp", "cc", "c" }
+  local header_extensions = { "h", "hpp", "hxx" }
 
-  -- Function to check if a file exists
-  local function file_exists(name)
-    local f = io.open(name, "r")
-    if f ~= nil then
-      io.close(f)
-      return true
-    else
-      return false
-    end
-  end
-
-  -- Function to build the new file path
-  local function build_new_path(parts, new_extension)
-    parts[#parts] = split(parts[#parts], file_sep)[1] .. new_extension
-    return table.concat(parts, path_sep)
-  end
-
-  -- Function to find the new file path
-  local function find_new_file(current_file, new_extension)
-    local parts = split(current_file, path_sep)
-    local new_file = build_new_path(parts, new_extension)
-
-    -- Check if the file exists in the same directory
-    if file_exists(new_file) then
-      return new_file
-    end
-
-    -- Check in 'include', 'src', and 'source' directories
-    for _, dir in ipairs({ "include", "src", "source" }) do
-      parts[#parts - 1] = dir
-      new_file = build_new_path(parts, new_extension)
-      if file_exists(new_file) then
-        return new_file
+  local function find_and_open_file(dir, filename, extensions)
+    for _, ext in ipairs(extensions) do
+      local found_files = vim.fn.glob(dir .. "/**/*." .. ext)
+      for found_file in string.gmatch(found_files, "[^\n]+") do
+        if vim.fn.isdirectory(found_file) == 0 and string.match(found_file, filename) then
+          vim.cmd("edit " .. found_file)
+          return true
+        end
       end
     end
-
-    return nil
+    return false
   end
 
-  local new_file
-  if current_file:find("%.cpp$") or current_file:find("%.cc$") then
-    new_file = find_new_file(current_file, ".h")
-  elseif current_file:find("%.h$") then
-    new_file = find_new_file(current_file, ".cpp") or find_new_file(current_file, ".cc")
+  local function switch_dir(dir)
+    local parent_dir = vim.fn.fnamemodify(dir, ":h")
+    return parent_dir
   end
 
-  if new_file then
-    vim.cmd("edit " .. new_file)
-  else
-    print("Corresponding file not found.")
+  local target_dir = switch_dir(dir)
+
+  if vim.tbl_contains(source_extensions, extension) then
+    find_and_open_file(target_dir, filename, header_extensions)
+  elseif vim.tbl_contains(header_extensions, extension) then
+    find_and_open_file(target_dir, filename, source_extensions)
   end
 end
 

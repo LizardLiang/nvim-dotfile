@@ -1,12 +1,12 @@
 return {
   "LizardLiang/simple-scripts.nvim",
-  enabled = false,
+  dir = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim\\lua\\simple-scripts",
   ft = { "c", "cpp" },
   keys = { "clg", "<leader>fC" },
   vscode = true,
   config = function()
-    local keymap = vim.keymap
     local script = require("simple-scripts")
+    local keymap = vim.keymap
     keymap.set(
       "n",
       "<leader>tf",
