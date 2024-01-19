@@ -4,35 +4,47 @@ local M = {}
 M.toggle = function()
   local filename = vim.fn.expand("%:t:r")
   local extension = vim.fn.expand("%:e")
-  local dir = vim.fn.expand("%:p:h")
+  local current_dir = vim.fn.expand("%:p:h")
 
   local source_extensions = { "cpp", "cc", "c" }
   local header_extensions = { "h", "hpp", "hxx" }
 
-  local function find_and_open_file(dir, filename, extensions)
-    for _, ext in ipairs(extensions) do
-      local found_files = vim.fn.glob(dir .. "/**/*." .. ext)
-      for found_file in string.gmatch(found_files, "[^\n]+") do
-        if vim.fn.isdirectory(found_file) == 0 and string.match(found_file, filename) then
-          vim.cmd("edit " .. found_file)
-          return true
+  local function find_and_open_file(target_dirs, filename_, extensions)
+    for _, dir in ipairs(target_dirs) do
+      for _, ext in ipairs(extensions) do
+        local search_pattern = dir .. "/*." .. ext
+        local found_files = vim.fn.glob(search_pattern)
+        for found_file in string.gmatch(found_files, "[^\n]+") do
+          if
+            vim.fn.isdirectory(found_file) == 0
+            and string.match(found_file, "\\" .. filename_ .. "%." .. "[a-zA-Z0-9]*$")
+          then
+            vim.cmd("edit " .. found_file)
+            return true
+          end
         end
       end
     end
     return false
   end
 
-  local function switch_dir(dir)
-    local parent_dir = vim.fn.fnamemodify(dir, ":h")
-    return parent_dir
+  local function get_search_directories(current_dir_)
+    local root_dir = vim.fn.fnamemodify(current_dir_, ":p:h:h")
+    local search_dirs = {
+      current_dir_,
+      root_dir .. "/src",
+      root_dir .. "/source",
+      root_dir .. "/include",
+    }
+    return search_dirs
   end
 
-  local target_dir = switch_dir(dir)
+  local search_dirs = get_search_directories(current_dir)
 
   if vim.tbl_contains(source_extensions, extension) then
-    find_and_open_file(target_dir, filename, header_extensions)
+    find_and_open_file(search_dirs, filename, header_extensions)
   elseif vim.tbl_contains(header_extensions, extension) then
-    find_and_open_file(target_dir, filename, source_extensions)
+    find_and_open_file(search_dirs, filename, source_extensions)
   end
 end
 
