@@ -60,6 +60,7 @@ M.generate_cpp_header = function()
                 (qualified_identifier) 
                 (primitive_type) 
                 (type_identifier)
+                (template_type)
             ] @return.type
             declarator: [
               (function_declarator

@@ -16,7 +16,7 @@ return {
   {
     "rcarriga/nvim-notify",
     opts = {
-      timeout = 5000,
+      timeout = 3000,
     },
   },
   {
@@ -30,29 +30,43 @@ return {
   },
   {
     "b0o/incline.nvim",
-    dependencies = { "craftzdog/solarized-osaka.nvim" },
+    event = "BufRead",
+    dependencies = { "SmiteshP/nvim-navic" },
     priority = 1200,
     config = function()
-      local colors = require("solarized-osaka.colors").setup()
+      -- local colors = require("solarized-osaka.colors").setup()
+      local helpers = require("incline.helpers")
+      local navic = require("nvim-navic")
+      local devicons = require("nvim-web-devicons")
       require("incline").setup({
-        highlight = {
-          groups = {
-            InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
-            INclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
-          },
-        },
-        window = { margin = { vertical = 0, horizontal = 1 } },
-        hide = {
-          cursorline = true,
+        window = {
+          padding = 0,
+          margin = { horizontal = 0, vertical = 0 },
         },
         render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_changedtick(props.buf))
-          if vim.bo[props.buf].modified then
-            filename = "[+]" .. filename
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          if filename == "" then
+            filename = "[No Name]"
           end
-
-          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filename } }
+          local ft_icon, ft_color = devicons.get_icon_color(filename)
+          local modified = vim.bo[props.buf].modified
+          local res = {
+            ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
+            " ",
+            { filename, gui = modified and "bold,italic" or "bold" },
+            guibg = "#44406e",
+          }
+          if props.focused then
+            for _, item in ipairs(navic.get_data(props.buf) or {}) do
+              table.insert(res, {
+                { " > ", group = "NavicSeparator" },
+                { item.icon, group = "NavicIcons" .. item.type },
+                { item.name, group = "NavicText" },
+              })
+            end
+          end
+          table.insert(res, " ")
+          return res
         end,
       })
     end,
