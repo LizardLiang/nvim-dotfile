@@ -11,6 +11,8 @@ local map = Util.safe_keymap_set
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+map({ "v" }, "<C-p>", '"_dP')
+
 map({ "n" }, "<leader>bt", "<C-6>", { desc = "[B]uffer [T]oggle" })
 
 -- Increment/decrement window size

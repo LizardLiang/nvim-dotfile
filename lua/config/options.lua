@@ -9,3 +9,11 @@ vim.cmd([[let &t_Ce = "\e[4:0m]"]])
 vim.filetype.add({
   pattern = { ["*.gyp"] = "gyp" },
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc", "gyp", "markdown" },
+  callback = function()
+    vim.wo.spell = false
+    vim.wo.conceallevel = 0
+  end,
+})
