@@ -4,6 +4,13 @@ return {
     keys = {
       { "<leader>fr", false },
       {
+        "<leader>ff",
+        function()
+          require("telescope.builtin").find_files({ hidden = true })
+        end,
+        desc = "[F]ind [F]iles",
+      },
+      {
         "<leader>fo",
         function()
           require("telescope.builtin").oldfiles()
@@ -16,6 +23,15 @@ return {
           local builtin = require("telescope.builtin")
           builtin.resume()
         end,
+        desc = "Resume the last telescope picker",
+      },
+      {
+        "<leader>fs",
+        function()
+          local builtin = require("telescope.builtin")
+          builtin.git_status()
+        end,
+        desc = "[F]ind Git [S]tatus",
       },
     },
     config = function(_, opts)
