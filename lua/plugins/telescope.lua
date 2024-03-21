@@ -11,13 +11,6 @@ return {
         desc = "[F]ind [O]ld files",
       },
       {
-        "<leader>fl",
-        function()
-          require("telescope.builtin").resume()
-        end,
-        desc = "[F]ind [L]ast result",
-      },
-      {
         ";;",
         function()
           local builtin = require("telescope.builtin")

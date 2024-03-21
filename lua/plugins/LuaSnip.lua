@@ -49,5 +49,12 @@ return {
       jsDocReturnSnippet,
       arrowfunction,
     })
+    ls.add_snippets("typescriptreact", {
+      jsDocSnippet,
+      jsDocConstructorSnippet,
+      jsDocParamSnippet,
+      jsDocReturnSnippet,
+      arrowfunction,
+    })
   end,
 }
