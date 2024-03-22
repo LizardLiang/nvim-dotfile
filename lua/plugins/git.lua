@@ -21,7 +21,7 @@ return {
   {
     "dinhhuy258/git.nvim", -- For git blame & browse
     event = "BufReadPre",
-    keys = { { "<leader>gp", false } },
+    keys = { { "<leader>gp", false }, { "<leader>gd", false }, { "<leader>gD", false } },
     config = function()
       local status, git = pcall(require, "git")
       if not status then
@@ -43,6 +43,9 @@ return {
     event = "BufRead",
     config = function()
       local status, fugitive = pcall(require, "fugitive")
+      local map = vim.keymap.set
+      map({ "n" }, "<leader>gd", "<Cmd>Gvdiff<CR>", { desc = "[G]it [D]iff" })
+      map({ "n" }, "<leader>gD", "<Cmd>Gvdiffsplit<CR>", { desc = "[Git] [D]iff conflict" })
     end,
   },
   { "f-person/git-blame.nvim", event = "VeryLazy" },
