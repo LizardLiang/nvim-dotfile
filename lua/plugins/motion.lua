@@ -11,43 +11,8 @@ return {
 
       hop.setup({})
 
-      keymap.set("", "f", function()
-        hop.hint_char1({ direction = directions.AFTER_CURSOR })
-      end, { desc = "Find char after cursor" })
-      keymap.set("", "F", function()
-        hop.hint_char1({ direction = directions.BEFORE_CURSOR })
-      end, { desc = "Find char before cursor" })
       keymap.set("n", "<leader>hw", "<Cmd>HopWord<CR>", { desc = "Find Word In Current Buffer" })
       keymap.set("n", "<leader>hl", "<Cmd>HopLineStart<CR>", { desc = "Find Line Start Key" })
-    end,
-  },
-  {
-    "folke/flash.nvim",
-    keys = { "<leader>hf", "f", "R", "v" },
-    opts = {},
-    config = function()
-      local flash = require("flash")
-      local keymap = vim.keymap
-
-      keymap.set({ "n", "x", "o" }, "<leader>hf", function()
-        flash.jump()
-      end, { silent = true })
-
-      keymap.set({ "n", "x", "o" }, "<leader>hF", function()
-        flash.treesitter()
-      end, { desc = "[H]op [F]lash", silent = true })
-
-      keymap.set({ "o" }, "<leader>hr", function()
-        flash.remote()
-      end, { desc = "[H]op Flash [R]emote", silent = true })
-
-      keymap.set({ "o", "x", "v" }, "R", function()
-        flash.treesitter_search()
-      end, { desc = "Flash Treesitter Search", silent = true })
-
-      keymap.set({ "c" }, "<leader>hc", function()
-        flash.toggle()
-      end, { desc = "[H]op Toggle Flash Search", silent = true })
     end,
   },
   {
@@ -57,6 +22,7 @@ return {
   },
   {
     "kylechui/nvim-surround",
+    enabled = false,
     keys = { "d", "c", "y", "v" },
     vscode = true,
     config = function()
@@ -96,7 +62,7 @@ return {
         local targetWidth = width - sufWidth
         local curWidth = 0
         for _, chunk in ipairs(virtText) do
-          local chunkText = chunk[1]
+          local chunkText = chunk
           local chunkWidth = vim.fn.strdisplaywidth(chunkText)
           if targetWidth > curWidth + chunkWidth then
             table.insert(newVirtText, chunk)
