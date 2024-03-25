@@ -17,3 +17,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo.conceallevel = 0
   end,
 })
+
+vim.o.shell = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+vim.o.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command"
+vim.o.shellquote = '"'
+vim.o.shellxquote = ""
