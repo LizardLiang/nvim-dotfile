@@ -14,9 +14,9 @@ return {
   s(
     { trig = "doc" }, -- Table of snippet parameters
     { -- Table of snippet nodes
-      t("/********"),
+      t("/**"),
       i(1),
-      t("*******/"),
+      t("*/"),
     }
   ),
 }
