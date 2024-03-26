@@ -123,34 +123,6 @@ return {
     end,
   },
   {
-    "NvChad/nvim-colorizer.lua",
-    ft = { "scss", "css", "javascript", "typescript" },
-    opt = {
-      RRGGBBAA = true,
-      css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-      css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-      -- Available modes for `mode`: foreground, background,  virtualtext
-      sass = {
-        enable = true,
-        parsers = { "css" },
-      },
-    },
-    config = function()
-      require("colorizer").setup({
-        user_default_options = {
-          RRGGBBAA = true,
-          css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-          css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-          -- Available modes for `mode`: foreground, background,  virtualtext
-          sass = {
-            enable = true,
-            parsers = { "css" },
-          }, -- Enable all SASS features: rgb_fn, hsl_fn
-        },
-      })
-    end,
-  },
-  {
     "stevearc/oil.nvim",
     opts = {},
     -- Optional dependencies
@@ -295,55 +267,97 @@ return {
       vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "Open parent directory" })
     end,
   },
-  {
-    "gelguy/wilder.nvim",
-    enabled = function()
-      return not vim.g.vscode
-    end,
-    build = ":UpdateRemotePlugins",
-    event = "VeryLazy",
-    keys = { ":" },
-    config = function()
-      local wilder = require("wilder")
-      wilder.setup({ modes = { ":", "/", "?" } })
-      wilder.set_option(
-        "renderer",
-        wilder.popupmenu_renderer({
-          highlighter = wilder.basic_highlighter(),
-          left = { " ", wilder.popupmenu_devicons() },
-          right = { " ", wilder.popupmenu_scrollbar() },
-          pumblend = 20,
-        })
-      )
-      wilder.set_option(
-        "renderer",
-        wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
-          highlights = {
-            border = "Normal", -- highlight to use for the border
-          },
-          -- 'single', 'double', 'rounded' or 'solid'
-          -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
-          border = "rounded",
-        }))
-      )
-      wilder.set_option("pipeline", {
-        wilder.branch(
-          wilder.python_file_finder_pipeline({
-            -- to use ripgrep : {'rg', '--files'}
-            -- to use fd      : {'fd', '-tf'}
-            file_command = { "fd", "-tf" },
-            -- to use fd      : {'fd', '-td'}
-            dir_command = { "fd", "-td" },
-            -- use {'cpsm_filter'} for performance, requires cpsm vim plugin
-            -- found at https://github.com/nixprime/cpsm
-            filters = { "fuzzy_filter", "difflib_sorter" },
-          }),
-          wilder.cmdline_pipeline(),
-          wilder.python_search_pipeline()
-        ),
-      })
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   enabled = function()
+  --     return not vim.g.vscode
+  --   end,
+  --   build = ":UpdateRemotePlugins",
+  --   event = "VeryLazy",
+  --   keys = { ":" },
+  --   config = function()
+  --     local wilder = require("wilder")
+  --     wilder.setup({ modes = { ":", "/", "?" } })
+  --
+  --     wilder.set_option("pipeline", {
+  --       wilder.branch(
+  --         wilder.python_file_finder_pipeline({
+  --           file_command = function(ctx, arg)
+  --             if string.find(arg, ".") ~= nil then
+  --               return { "fdfind", "-tf", "-H" }
+  --             else
+  --               return { "fdfind", "-tf" }
+  --             end
+  --           end,
+  --           dir_command = { "fd", "-td" },
+  --           filters = { "cpsm_filter" },
+  --         }),
+  --         wilder.substitute_pipeline({
+  --           pipeline = wilder.python_search_pipeline({
+  --             skip_cmdtype_check = 1,
+  --             pattern = wilder.python_fuzzy_pattern({
+  --               start_at_boundary = 0,
+  --             }),
+  --           }),
+  --         }),
+  --         wilder.cmdline_pipeline({
+  --           fuzzy = 2,
+  --           fuzzy_filter = wilder.lua_fzy_filter(),
+  --         }),
+  --         {
+  --           wilder.check(function(ctx, x)
+  --             return x == ""
+  --           end),
+  --           wilder.history(),
+  --         },
+  --         wilder.python_search_pipeline({
+  --           pattern = wilder.python_fuzzy_pattern({
+  --             start_at_boundary = 0,
+  --           }),
+  --         })
+  --       ),
+  --     })
+  --
+  --     local highlighters = {
+  --       wilder.pcre2_highlighter(),
+  --       wilder.lua_fzy_highlighter(),
+  --     }
+  --
+  --     local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
+  --       border = "rounded",
+  --       empty_message = wilder.popupmenu_empty_message_with_spinner(),
+  --       highlighter = highlighters,
+  --       left = {
+  --         " ",
+  --         wilder.popupmenu_devicons(),
+  --         wilder.popupmenu_buffer_flags({
+  --           flags = " a + ",
+  --           icons = { ["+"] = "", a = "", h = "" },
+  --         }),
+  --       },
+  --       right = {
+  --         " ",
+  --         wilder.popupmenu_scrollbar(),
+  --       },
+  --     }))
+  --
+  --     local wildmenu_renderer = wilder.wildmenu_renderer({
+  --       highlighter = highlighters,
+  --       separator = " · ",
+  --       left = { " ", wilder.wildmenu_spinner(), " " },
+  --       right = { " ", wilder.wildmenu_index() },
+  --     })
+  --
+  --     wilder.set_option(
+  --       "renderer",
+  --       wilder.renderer_mux({
+  --         [":"] = popupmenu_renderer,
+  --         ["/"] = wildmenu_renderer,
+  --         substitute = wildmenu_renderer,
+  --       })
+  --     )
+  --   end,
+  -- },
   {
     -- Styling
     "xiyaowong/transparent.nvim",
@@ -352,5 +366,17 @@ return {
       local transparent = require("transparent")
       vim.g.transparent_enable = 1
     end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      plugins = {
+        gitsigns = true,
+        tmux = true,
+        kitty = { enabled = false, font = "+2" },
+      },
+    },
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
 }
