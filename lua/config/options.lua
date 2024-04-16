@@ -11,7 +11,7 @@ vim.filetype.add({
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "jsonc", "gyp", "markdown" },
+  pattern = { "json", "jsonc", "gyp", "markdown", "md" },
   callback = function()
     vim.wo.spell = false
     vim.wo.conceallevel = 0
