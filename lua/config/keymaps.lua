@@ -29,27 +29,27 @@ map({ "n" }, "vae", "gg<S-v>G")
 map({ "n" }, "<C-m>", "<C-i>", opts)
 
 -- New tab
-keymap.set("n", "te", "tabedit", opts)
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabpreview<Return>", opts)
+map({ "n" }, "te", "tabedit", opts)
+map({ "n" }, "<tab>", ":tabnext<Return>", opts)
+map({ "n" }, "<s-tab>", ":tabpreview<Return>", opts)
 
 -- Split window
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
+map({ "n" }, "ss", ":split<Return>", opts)
+map({ "n" }, "sv", ":vsplit<Return>", opts)
 
 -- Move window
--- keymap.set("n", "sh", "<C-w>h")
--- keymap.set("n", "sj", "<C-w>j")
--- keymap.set("n", "sk", "<C-w>k")
--- keymap.set("n", "sl", "<C-w>l")
+-- map({"n"}, "sh", "<C-w>h")
+-- map({"n"}, "sj", "<C-w>j")
+-- map({"n"}, "sk", "<C-w>k")
+-- map({"n"}, "sl", "<C-w>l")
 
 -- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+map({ "n" }, "<C-w><left>", "<C-w><")
+map({ "n" }, "<C-w><right>", "<C-w>>")
+map({ "n" }, "<C-w><up>", "<C-w>+")
+map({ "n" }, "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
+map({ "n" }, "<C-j>", function()
   vim.diagnostic.goto_next()
 end)

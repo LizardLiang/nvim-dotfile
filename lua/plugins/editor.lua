@@ -258,7 +258,7 @@ return {
     },
     config = function()
       vim.g.ray_options = {
-        padding = "16",
+        padding = "0",
         theme = "midnight",
       }
     end,
