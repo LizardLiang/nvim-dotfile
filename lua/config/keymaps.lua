@@ -11,7 +11,7 @@ local map = Util.safe_keymap_set
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
-keymap.set("v", "p", '"_dP')
+map({ "v" }, "p", '"_dp')
 
 map({ "n" }, "<leader>bt", "<C-6>", { desc = "[B]uffer [T]oggle" })
 
