@@ -23,4 +23,6 @@ if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
   vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
   vim.o.shellquote = ""
   vim.o.shellxquote = ""
+else
+  vim.o.shell = "user/bin/zsh"
 end
