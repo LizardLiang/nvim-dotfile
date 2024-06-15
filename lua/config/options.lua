@@ -18,7 +18,9 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.o.shell = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
-vim.o.shellquote = ""
-vim.o.shellxquote = ""
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+  vim.o.shell = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+  vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
+  vim.o.shellquote = ""
+  vim.o.shellxquote = ""
+end
