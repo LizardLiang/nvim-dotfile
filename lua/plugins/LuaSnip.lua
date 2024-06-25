@@ -1,5 +1,7 @@
 return {
   "L3MON4D3/LuaSnip",
+  version = "v2.*",
+  build = "pwsh " .. vim.fn.stdpath("config") .. "\\lua\\install_scripts\\luasnip_jsregexp_build.ps1",
   config = function()
     require("luasnip.loaders.from_lua").lazy_load({ paths = "~/AppData/Local/nvim/LuaSnip/" })
     require("luasnip.loaders.from_vscode").lazy_load()
