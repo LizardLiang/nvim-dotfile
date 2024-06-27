@@ -34,6 +34,58 @@ return {
         desc = "[F]ind Git [S]tatus",
       },
     },
+    opts = function()
+      local actions = require("telescope.actions")
+
+      local open_with_trouble = function(...)
+        return require("trouble.sources.telescope").open(...)
+      end
+      local find_files_no_ignore = function()
+        local action_state = require("telescope.actions.state")
+        local line = action_state.get_current_line()
+        LazyVim.pick("find_files", { no_ignore = true, default_text = line })()
+      end
+      local find_files_with_hidden = function()
+        local action_state = require("telescope.actions.state")
+        local line = action_state.get_current_line()
+        LazyVim.pick("find_files", { hidden = true, default_text = line })()
+      end
+
+      return {
+        defaults = {
+          prompt_prefix = " ",
+          selection_caret = " ",
+          -- open files in the first window that is an actual file.
+          -- use the current window if no other window is available.
+          get_selection_window = function()
+            local wins = vim.api.nvim_list_wins()
+            table.insert(wins, 1, vim.api.nvim_get_current_win())
+            for _, win in ipairs(wins) do
+              local buf = vim.api.nvim_win_get_buf(win)
+              if vim.bo[buf].buftype == "" then
+                return win
+              end
+            end
+            return 0
+          end,
+          mappings = {
+            i = {
+              ["<c-t>"] = open_with_trouble,
+              ["<a-t>"] = open_with_trouble,
+              ["<a-i>"] = find_files_no_ignore,
+              ["<a-h>"] = find_files_with_hidden,
+              ["<C-Down>"] = actions.cycle_history_next,
+              ["<C-Up>"] = actions.cycle_history_prev,
+              ["<C-f>"] = actions.preview_scrolling_down,
+              ["<C-b>"] = actions.preview_scrolling_up,
+            },
+            n = {
+              ["q"] = actions.close,
+            },
+          },
+        },
+      }
+    end,
     config = function(_, opts)
       local telescope = require("telescope")
 
@@ -56,6 +108,7 @@ return {
         },
         path_display = { "smart" },
       })
+
       opts.pickers = {
         disgnostics = {
           theme = "ivy",
@@ -122,7 +175,7 @@ return {
       })
 
       telescope.load_extension("file_browser")
-      telescope.load_extension("fzf")
+      -- telescope.load_extension("fzf")
       local keymap = vim.keymap
 
       keymap.set("n", ";sf", function()
@@ -138,11 +191,6 @@ return {
         })
       end, { desc = "[F]ile [B]rowser" })
     end,
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    -- build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    build = "make",
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
