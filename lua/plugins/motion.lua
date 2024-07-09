@@ -21,17 +21,6 @@ return {
     event = "BufRead",
   },
   {
-    "kylechui/nvim-surround",
-    enabled = false,
-    keys = { "d", "c", "y", "v" },
-    vscode = true,
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end,
-  },
-  {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
     event = "BufRead",
