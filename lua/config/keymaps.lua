@@ -8,7 +8,6 @@
 local Util = require("lazyvim/util")
 local map = Util.safe_keymap_set
 
-local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 map({ "v" }, "p", '"_dp')

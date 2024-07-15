@@ -246,11 +246,6 @@ return {
     keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
   {
-    "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
-    config = true,
-  },
-  {
     "sudoerwx/vim-ray-so-beautiful",
     vscode = true,
     keys = {
