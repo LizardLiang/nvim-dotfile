@@ -1,6 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    enabled = false,
     keys = {
       { "<leader>fr", false },
       {
@@ -141,11 +142,13 @@ return {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
+    enable = false,
     -- build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     build = "make",
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
+    enable = false,
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   },
 }

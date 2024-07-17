@@ -14,6 +14,7 @@ return {
         "css-lsp",
         "omnisharp",
         "black",
+        "csharp-language-server",
       })
     end,
   },
