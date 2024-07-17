@@ -12,7 +12,6 @@ return {
         "shfmt",
         "typescript-language-server",
         "css-lsp",
-        "omnisharp",
         "black",
         "csharp-language-server",
       })
