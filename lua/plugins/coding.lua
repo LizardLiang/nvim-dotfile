@@ -36,4 +36,13 @@ return {
       })
     end,
   },
+  {
+    "echasnovski/mini.pairs",
+    config = function(_, opts)
+      opts["mappings"] = {
+        ['"'] = false,
+      }
+      LazyVim.mini.pairs(opts)
+    end,
+  },
 }
