@@ -6,7 +6,6 @@ return {
     vscode = true,
     config = function()
       local hop = require("hop")
-      local directions = require("hop.hint").HintDirection
       local keymap = vim.keymap
 
       hop.setup({})
@@ -19,17 +18,6 @@ return {
     "mg979/vim-visual-multi",
     branch = "master",
     event = "BufRead",
-  },
-  {
-    "kylechui/nvim-surround",
-    enabled = false,
-    keys = { "d", "c", "y", "v" },
-    vscode = true,
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end,
   },
   {
     "kevinhwang91/nvim-ufo",
