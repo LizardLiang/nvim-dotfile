@@ -53,3 +53,5 @@ map({ "n" }, "<C-w><down>", "<C-w>-")
 map({ "n" }, "<C-j>", function()
   vim.diagnostic.goto_next()
 end)
+
+keymap.del("t", "<esc><esc>")
