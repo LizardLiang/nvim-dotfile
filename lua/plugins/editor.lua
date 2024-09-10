@@ -185,7 +185,6 @@ return {
     end,
   },
   {
-
     "matbme/JABS.nvim",
     keys = {
 
@@ -193,18 +192,6 @@ return {
     },
     config = function()
       require("jabs").setup()
-    end,
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    keys = { { "<leader>mp", "<Cmd>MarkdownPreview<CR>" } },
-    build = "cd app | npm install",
-    config = function()
-      vim.g.mkdp_auto_close = 0
-      vim.g.mkdp_combine_preview = 1
-      vim.g.mkdp_combine_preview_auto_refresh = 1
     end,
   },
   {
@@ -261,6 +248,16 @@ return {
         padding = "0",
         theme = "midnight",
       }
+    end,
+  },
+  {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+      require("peek").setup()
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
 }

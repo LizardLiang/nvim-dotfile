@@ -54,4 +54,6 @@ map({ "n" }, "<C-j>", function()
   vim.diagnostic.goto_next()
 end)
 
+map({ "n" }, "<leader>mp", "<Cmd>PeekOpen<CR>", { desc = "[O]pen [M]arkdown [P]eek" })
+
 keymap.del("t", "<esc><esc>")
