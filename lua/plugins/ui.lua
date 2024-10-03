@@ -24,7 +24,7 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "kanagawa",
+        theme = "tokyonight-night",
       },
     },
   },
