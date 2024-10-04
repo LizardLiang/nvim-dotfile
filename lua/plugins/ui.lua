@@ -55,7 +55,6 @@ return {
     dependencies = { "SmiteshP/nvim-navic" },
     priority = 1200,
     config = function()
-      -- local colors = require("solarized-osaka.colors").setup()
       local helpers = require("incline.helpers")
       local navic = require("nvim-navic")
       local devicons = require("nvim-web-devicons")

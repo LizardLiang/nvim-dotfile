@@ -28,7 +28,7 @@ return {
     })
 
     -- setup must be called before loading
-    vim.cmd("colorscheme kanagawa")
+    -- vim.cmd("colorscheme kanagawa")
   end,
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then

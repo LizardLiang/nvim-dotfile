@@ -1,7 +1,10 @@
+-- stylua: ignore
+if true then return {} end
+
 return {
   {
     "nvim-telescope/telescope.nvim",
-    enabled = false,
+    enabled = true,
     keys = {
       { "<leader>fr", false },
       {
@@ -142,13 +145,13 @@ return {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    enable = false,
+    enable = true,
     -- build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     build = "make",
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
-    enable = false,
+    enable = true,
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   },
 }

@@ -43,6 +43,7 @@ return {
             "--fallback-style=llvm",
           },
         },
+        --[[
         omnisharp = {
           handlers = {
             ["textDocument/definition"] = function(...)
@@ -53,7 +54,7 @@ return {
             {
               "gd",
               function()
-                require("omnisharp_extended").telescope_lsp_definitions()
+                require("omnisharp_extended").lsp_definition()
               end,
               desc = "Goto Definition",
             },
@@ -62,6 +63,7 @@ return {
           organize_imports_on_format = true,
           enable_import_completion = true,
         },
+        ]]
       },
       setup = {},
     },
@@ -73,6 +75,7 @@ return {
       -- Add any additional formatters here
       formatters_by_ft = {
         gyp = { "prettier_for_gyp" },
+        cs = { "csharpier", "omnisharp" },
       },
       formatters = {
         prettier_for_gyp = prettier_for_gyp,
@@ -99,5 +102,5 @@ return {
       vim.treesitter.language.register("markdown", "mdx")
     end,
   },
-  { "Hoffs/omnisharp-extended-lsp.nvim", lazy = true },
+  { "Hoffs/omnisharp-extended-lsp.nvim", lazy = true, enable = false },
 }

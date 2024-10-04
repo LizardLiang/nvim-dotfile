@@ -30,3 +30,10 @@ end
 if vim.g.vscode then
   vim.opt.isprint = "1-255"
 end
+
+vim.cmd([[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]])

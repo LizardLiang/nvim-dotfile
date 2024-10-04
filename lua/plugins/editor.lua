@@ -185,17 +185,8 @@ return {
     end,
   },
   {
-    "matbme/JABS.nvim",
-    keys = {
-
-      { "<leader>jb", "<cmd>JABSOpen<cr>", { desc = "Open buffer switch" } },
-    },
-    config = function()
-      require("jabs").setup()
-    end,
-  },
-  {
     "echasnovski/mini.comment",
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     opts = {
       options = {
         custom_commentstring = function()
