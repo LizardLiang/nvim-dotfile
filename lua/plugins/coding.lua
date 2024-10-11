@@ -11,6 +11,7 @@ return {
         quickfix = { suffix = "" },
         yank = { suffix = "" },
         treesitter = { suffix = "n" },
+        comment = { suffix = "", options = {} },
       })
     end,
   },
@@ -49,6 +50,8 @@ return {
     "yetone/avante.nvim",
     enabled = false,
     event = "VeryLazy",
+    lazy = false,
+    build = "make",
     opts = {
       -- add any opts here
     },
@@ -82,5 +85,8 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
+    config = function()
+      vim.opt.laststatus = 3
+    end,
   },
 }

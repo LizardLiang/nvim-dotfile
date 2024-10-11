@@ -42,7 +42,6 @@ return {
     "tpope/vim-fugitive", -- For git commands
     event = "BufRead",
     config = function()
-      local status, fugitive = pcall(require, "fugitive")
       local map = vim.keymap.set
       map({ "n" }, "<leader>gd", "<Cmd>Gvdiff<CR>", { desc = "[G]it [D]iff" })
       map({ "n" }, "<leader>gD", "<Cmd>Gvdiffsplit<CR>", { desc = "[Git] [D]iff conflict" })
