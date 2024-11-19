@@ -56,4 +56,4 @@ end)
 
 map({ "n" }, "<leader>mp", "<Cmd>PeekOpen<CR>", { desc = "[O]pen [M]arkdown [P]eek" })
 
-keymap.del("t", "<esc><esc>")
+-- keymap.del("t", "<esc><esc>")

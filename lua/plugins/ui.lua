@@ -117,10 +117,58 @@ return {
                                                                                     \_/__/ 
       ]]
 
-      logo = string.rep("\n", 4) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
+      print(opts)
+
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      opts.theme = "doom"
+      opts.hide = {
+        -- this is taken care of by lualine
+        -- enabling this messes up the actual laststatus setting after loading a file
+        statusline = false,
+      }
+      opts.config = {
+        header = vim.split(logo, "\n"),
+          -- stylua: ignore
+        center = {
+          { action = 'lua LazyVim.pick()()',                           desc = " Find File",       icon = " ", key = "f" },
+          { action = "ene | startinsert",                              desc = " New File",        icon = " ", key = "n" },
+          { action = 'lua LazyVim.pick("oldfiles")()',                 desc = " Recent Files",    icon = " ", key = "r" },
+          { action = 'lua LazyVim.pick("live_grep")()',                desc = " Find Text",       icon = " ", key = "g" },
+          { action = 'lua LazyVim.pick.config_files()()',              desc = " Config",          icon = " ", key = "c" },
+          { action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ", key = "s" },
+          { action = "LazyExtras",                                     desc = " Lazy Extras",     icon = " ", key = "x" },
+          { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
+          { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ", key = "q" },
+        },
+        footer = function()
+          local stats = require("lazy").stats()
+          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+          return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+        end,
+      }
+
+      for _, button in ipairs(opts.config.center) do
+        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+        button.key_format = "  %s"
+      end
+
+      -- open dashboard after closing lazy
+      if vim.o.filetype == "lazy" then
+        vim.api.nvim_create_autocmd("WinClosed", {
+          pattern = tostring(vim.api.nvim_get_current_win()),
+          once = true,
+          callback = function()
+            vim.schedule(function()
+              vim.api.nvim_exec_autocmds("UIEnter", { group = "dashboard" })
+            end)
+          end,
+        })
+      end
+
+      return opts
     end,
   },
+  { "folke/snacks.nvim", opts = { dashboard = { enabled = false } } },
   {
     "stevearc/oil.nvim",
     opts = {},
@@ -193,7 +241,7 @@ return {
         use_default_keymaps = true,
         view_options = {
           -- Show files and directories that start with "."
-          show_hidden = false,
+          show_hidden = true,
           -- This function defines what is considered a "hidden" file
           is_hidden_file = function(name, bufnr)
             return vim.startswith(name, ".")
@@ -266,97 +314,6 @@ return {
       vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "Open parent directory" })
     end,
   },
-  -- {
-  --   "gelguy/wilder.nvim",
-  --   enabled = function()
-  --     return not vim.g.vscode
-  --   end,
-  --   build = ":UpdateRemotePlugins",
-  --   event = "VeryLazy",
-  --   keys = { ":" },
-  --   config = function()
-  --     local wilder = require("wilder")
-  --     wilder.setup({ modes = { ":", "/", "?" } })
-  --
-  --     wilder.set_option("pipeline", {
-  --       wilder.branch(
-  --         wilder.python_file_finder_pipeline({
-  --           file_command = function(ctx, arg)
-  --             if string.find(arg, ".") ~= nil then
-  --               return { "fdfind", "-tf", "-H" }
-  --             else
-  --               return { "fdfind", "-tf" }
-  --             end
-  --           end,
-  --           dir_command = { "fd", "-td" },
-  --           filters = { "cpsm_filter" },
-  --         }),
-  --         wilder.substitute_pipeline({
-  --           pipeline = wilder.python_search_pipeline({
-  --             skip_cmdtype_check = 1,
-  --             pattern = wilder.python_fuzzy_pattern({
-  --               start_at_boundary = 0,
-  --             }),
-  --           }),
-  --         }),
-  --         wilder.cmdline_pipeline({
-  --           fuzzy = 2,
-  --           fuzzy_filter = wilder.lua_fzy_filter(),
-  --         }),
-  --         {
-  --           wilder.check(function(ctx, x)
-  --             return x == ""
-  --           end),
-  --           wilder.history(),
-  --         },
-  --         wilder.python_search_pipeline({
-  --           pattern = wilder.python_fuzzy_pattern({
-  --             start_at_boundary = 0,
-  --           }),
-  --         })
-  --       ),
-  --     })
-  --
-  --     local highlighters = {
-  --       wilder.pcre2_highlighter(),
-  --       wilder.lua_fzy_highlighter(),
-  --     }
-  --
-  --     local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
-  --       border = "rounded",
-  --       empty_message = wilder.popupmenu_empty_message_with_spinner(),
-  --       highlighter = highlighters,
-  --       left = {
-  --         " ",
-  --         wilder.popupmenu_devicons(),
-  --         wilder.popupmenu_buffer_flags({
-  --           flags = " a + ",
-  --           icons = { ["+"] = "", a = "", h = "" },
-  --         }),
-  --       },
-  --       right = {
-  --         " ",
-  --         wilder.popupmenu_scrollbar(),
-  --       },
-  --     }))
-  --
-  --     local wildmenu_renderer = wilder.wildmenu_renderer({
-  --       highlighter = highlighters,
-  --       separator = " · ",
-  --       left = { " ", wilder.wildmenu_spinner(), " " },
-  --       right = { " ", wilder.wildmenu_index() },
-  --     })
-  --
-  --     wilder.set_option(
-  --       "renderer",
-  --       wilder.renderer_mux({
-  --         [":"] = popupmenu_renderer,
-  --         ["/"] = wildmenu_renderer,
-  --         substitute = wildmenu_renderer,
-  --       })
-  --     )
-  --   end,
-  -- },
   {
     -- Styling
     "xiyaowong/transparent.nvim",

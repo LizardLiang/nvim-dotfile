@@ -67,7 +67,7 @@ return {
       },
       setup = {
         clangd = function(_, opts)
-          opts.capabilities.offsetEncoding = { "utf-16" }
+          opts.capabilities.offsetEncoding = { "utf-8" }
         end,
       },
     },
