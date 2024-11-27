@@ -30,19 +30,23 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      inlay_hints = {
+        enabled = true,
+        exclude = { "vue", "cpp", "c" }, -- filetypes for which you don't want to enable inlay hints
+      },
       servers = {
         pyright = {},
-        clangd = {
-          cmd = {
-            "clangd",
-            -- "--background-index",
-            -- "--clang-tidy",
-            "--header-insertion=iwyu",
-            -- "--completion-style=detailed",
-            -- "--function-arg-placeholders",
-            -- "--fallback-style=llvm",
-          },
-        },
+        -- clangd = {
+        --   cmd = {
+        --     "clangd",
+        -- "--background-index",
+        -- "--clang-tidy",
+        -- "--header-insertion=iwyu",
+        -- "--completion-style=detailed",
+        -- "--function-arg-placeholders",
+        -- "--fallback-style=llvm",
+        --   },
+        -- },
         --[[
         omnisharp = {
           handlers = {
