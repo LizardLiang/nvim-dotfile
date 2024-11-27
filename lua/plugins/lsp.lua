@@ -35,12 +35,12 @@ return {
         clangd = {
           cmd = {
             "clangd",
-            "--background-index",
-            "--clang-tidy",
+            -- "--background-index",
+            -- "--clang-tidy",
             "--header-insertion=iwyu",
-            "--completion-style=detailed",
-            "--function-arg-placeholders",
-            "--fallback-style=llvm",
+            -- "--completion-style=detailed",
+            -- "--function-arg-placeholders",
+            -- "--fallback-style=llvm",
           },
         },
         --[[
@@ -66,9 +66,9 @@ return {
         ]]
       },
       setup = {
-        clangd = function(_, opts)
-          opts.capabilities.offsetEncoding = { "utf-8" }
-        end,
+        -- clangd = function(_, opts)
+        --   opts.capabilities.offsetEncoding = { "utf-8" }
+        -- end,
       },
     },
   },

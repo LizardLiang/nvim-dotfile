@@ -117,9 +117,7 @@ return {
                                                                                     \_/__/ 
       ]]
 
-      print(opts)
-
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      logo = string.rep("\n", 4) .. logo .. "\n\n"
       opts.theme = "doom"
       opts.hide = {
         -- this is taken care of by lualine
