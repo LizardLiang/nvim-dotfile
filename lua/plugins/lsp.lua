@@ -83,7 +83,7 @@ return {
       -- Add any additional formatters here
       formatters_by_ft = {
         gyp = { "prettier_for_gyp" },
-        cs = { "csharpier", "omnisharp" },
+        cs = { "csharpier" },
       },
       formatters = {
         prettier_for_gyp = prettier_for_gyp,
