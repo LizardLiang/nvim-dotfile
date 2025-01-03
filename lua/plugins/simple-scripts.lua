@@ -1,7 +1,7 @@
 return {
   {
     "LizardLiang/simple-scripts.nvim",
-    dir = "C:\\Users\\lizard.liang.WATCHSOFT\\AppData\\Local\\nvim\\lua\\simple-scripts",
+    dir = "C:\\Users\\lizard.liang.WATCH\\AppData\\Local\\nvim\\lua\\simple-scripts",
     ft = { "c", "cpp" },
     keys = { "clg", "<leader>fC" },
     vscode = true,
