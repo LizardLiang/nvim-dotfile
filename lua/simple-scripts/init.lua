@@ -150,7 +150,6 @@ local function find_function_node()
   local tree = parser:parse()[1]
   local root = tree:root()
   local cursor_row, cursor_col = unpack(vim.api.nvim_win_get_cursor(0))
-  cursor_row = cursor_row - 1
 
   local function_node = nil
   local PREPEND = "prepend"
@@ -218,6 +217,16 @@ local function find_function_call()
 end
 
 M.insert_debug_message = function()
+  local debug_markers = {
+    python = {
+      prefix = "# DEBUG_START",
+      postfix = "# DEBUG_END",
+    },
+    default = {
+      prefix = "/* DEBUG_START */",
+      postfix = "/* DEBUG_END */",
+    },
+  }
   local custom_function = read_project_toml()
   local filetype = vim.bo.filetype
   local line_number = vim.fn.line(".")
@@ -286,27 +295,64 @@ M.insert_debug_message = function()
       )
   end
 
-  if debug_message ~= "" then
-    local function_node, insert_direction = find_function_node()
-    local row = vim.fn.line(".")
-    local buf = vim.api.nvim_get_current_buf()
-
-    if not function_node then
-      vim.api.nvim_buf_set_lines(buf, row, row, false, { debug_message })
-      return
-    end
-
-    local start_row, _, end_row, _ = function_node:range()
-
-    if insert_direction == "prepend" then
-      row = start_row
-    else
-      -- Insert the debug message at the end of the function block
-      row = end_row + 1
-    end
-
-    vim.api.nvim_buf_set_lines(buf, row, row, false, { debug_message })
+  if debug_message == "" then
+    return
   end
+
+  local function_node, insert_direction = find_function_node()
+  local row = vim.fn.line(".")
+  local buf = vim.api.nvim_get_current_buf()
+
+  local markers = debug_markers[filetype] or debug_markers.default
+
+  local debug_lines = {
+    markers.prefix,
+    debug_message,
+    markers.postfix,
+  }
+
+  if not function_node then
+    vim.api.nvim_buf_set_lines(buf, row, row, false, debug_lines)
+    return
+  end
+
+  local start_row, _, end_row, _ = function_node:range()
+
+  if insert_direction == "prepend" then
+    row = start_row
+  else
+    -- Insert the debug message at the end of the function block
+    row = end_row + 1
+  end
+
+  vim.api.nvim_buf_set_lines(buf, row, row, false, debug_lines)
+end
+
+M.cleanup_debug_messages = function()
+  local buf = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  local new_lines = {}
+  local i = 1
+
+  while i <= #lines do
+    local line = lines[i]
+
+    if line:match("^%s*/%* DEBUG_START %*/$") or line:match("^%s*# DEBUG_START$") then
+      i = i + 1
+      while i <= #lines do
+        if lines[i]:match("^%s*/%* DEBUG_END %*/$") or lines[i]:match("^%s*# DEBUG_END$") then
+          i = i + 1
+          break
+        end
+        i = i + 1
+      end
+    else
+      table.insert(new_lines, line)
+      i = i + 1
+    end
+  end
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, new_lines)
 end
 
 M.goto_css_definition = find_class_definition
