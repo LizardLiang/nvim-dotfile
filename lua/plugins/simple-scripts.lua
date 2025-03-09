@@ -3,7 +3,7 @@ return {
     "LizardLiang/simple-scripts.nvim",
     -- dir = "C:\\Users\\lizard.liang.WATCH\\AppData\\Local\\nvim\\lua\\simple-scripts",
     ft = { "c", "cpp" },
-    keys = { "clg", "<leader>fC" },
+    keys = { "clc", "clg", "<leader>fC", "<leader>tg", "<leader>tf" },
     vscode = true,
     config = function()
       local script = require("simple-scripts")

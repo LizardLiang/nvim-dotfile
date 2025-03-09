@@ -242,58 +242,39 @@ M.insert_debug_message = function()
 
   local js_like_languages = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
 
+  local debug_format = ""
+  local debug_args = {}
+
   if vim.tbl_contains(js_like_languages, filetype) then
-    debug_message = custom_function
-        and string.format(
-          '%s("File: %s, Line: %s, %s: ", %s);',
-          custom_function,
-          file_name,
-          line_number,
-          word_under_cursor,
-          word_under_cursor
-        )
-      or string.format(
-        'console.log("File: %s, Line: %s, %s: ", %s);',
-        file_name,
-        line_number,
-        word_under_cursor,
-        word_under_cursor
-      )
+    if word_under_cursor and word_under_cursor ~= "" and not word_under_cursor:match("%s") then
+      debug_format = custom_function and '%s("File: %s, Line: %s, %s: ", %s);'
+        or 'console.log("File: %s, Line: %s, %s: ", %s);'
+      debug_args = { file_name, line_number, word_under_cursor, word_under_cursor }
+    else
+      debug_format = custom_function and '%s("File: %s, Line: %s");' or 'console.log("File: %s, Line: %s");'
+      debug_args = { file_name, line_number }
+    end
   elseif filetype == "python" then
-    debug_message = custom_function
-        and string.format(
-          '%s("File: %s, Line: %s, %s: ", %s)',
-          custom_function,
-          file_name,
-          line_number,
-          word_under_cursor,
-          word_under_cursor
-        )
-      or string.format(
-        'print("File: %s, Line: %s, %s: ", %s)',
-        file_name,
-        line_number,
-        word_under_cursor,
-        word_under_cursor
-      )
+    if word_under_cursor and word_under_cursor ~= "" and not word_under_cursor:match("%s") then
+      debug_format = custom_function and '%s("File: %s, Line: %s, %s: ", %s)' or 'print("File: %s, Line: %s, %s: ", %s)'
+      debug_args = { file_name, line_number, word_under_cursor, word_under_cursor }
+    else
+      debug_format = custom_function and '%s("File: %s, Line: %s")' or 'print("File: %s, Line: %s")'
+      debug_args = { file_name, line_number }
+    end
   elseif filetype == "cpp" then
-    debug_message = custom_function
-        and string.format(
-          '%s << "File: %s, Line: %s, %s: " << %s << std::endl;',
-          custom_function,
-          file_name,
-          line_number,
-          word_under_cursor,
-          word_under_cursor
-        )
-      or string.format(
-        'std::cout << "File: %s, Line: %s, %s: " << %s << std::endl;',
-        file_name,
-        line_number,
-        word_under_cursor,
-        word_under_cursor
-      )
+    if word_under_cursor and word_under_cursor ~= "" and not word_under_cursor:match("%s") then
+      debug_format = custom_function and '%s << "File: %s, Line: %s, %s: " << %s << std::endl;'
+        or 'std::cout << "File: %s, Line: %s, %s: " << %s << std::endl;'
+      debug_args = { file_name, line_number, word_under_cursor, word_under_cursor }
+    else
+      debug_format = custom_function and '%s << "File: %s, Line: %s" << std::endl;'
+        or 'std::cout << "File: %s, Line: %s" << std::endl;'
+      debug_args = { file_name, line_number }
+    end
   end
+
+  debug_message = string.format(debug_format, unpack(debug_args))
 
   if debug_message == "" then
     return
@@ -319,7 +300,7 @@ M.insert_debug_message = function()
   local start_row, _, end_row, _ = function_node:range()
 
   if insert_direction == "prepend" then
-    row = start_row
+    row = line_number - 1
   else
     -- Insert the debug message at the end of the function block
     row = end_row + 1

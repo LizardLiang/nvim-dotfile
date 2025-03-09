@@ -2,6 +2,10 @@ local util = require("conform.util")
 local prettier_for_gyp = vim.deepcopy(require("conform.formatters.prettier"))
 util.add_formatter_args(prettier_for_gyp, { "--parser", "json" })
 
+local function ts_disable(_, bufnr)
+  return vim.api.nvim_buf_line_count(bufnr) > 5000
+end
+
 return {
   {
     "williamboman/mason.nvim",
@@ -99,6 +103,13 @@ return {
           { "ninja", "python", "rst", "toml", "scss", "cmake", "cpp", "css", "sql" }
         )
       end
+      opts.highlight = {
+        enable = true,
+        disable = function(lang, bufnr)
+          return lang == "cmake" or ts_disable(lang, bufnr)
+        end,
+        additional_vim_regex_highlighting = { "latex" },
+      }
     end,
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)

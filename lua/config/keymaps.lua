@@ -8,12 +8,20 @@
 local Util = require("lazyvim/util")
 local map = Util.safe_keymap_set
 
-local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 map({ "v" }, "p", '"_dp')
 
 map({ "n" }, "<leader>bt", "<C-6>", { desc = "[B]uffer [T]oggle" })
+
+-- Move cursor
+map({ "n" }, "<s-g>", "<s-g>zz")
+map({ "n" }, "<C-u>", "<C-u>zz")
+map({ "n" }, "<C-d>", "<C-d>zz")
+map({ "n" }, "j", "jzz")
+map({ "n" }, "k", "kzz")
+map({ "n" }, "[f", "[fzz")
+map({ "n" }, "]f", "]fzz")
 
 -- Increment/decrement window size
 map({ "n" }, "+", "<C-a>")
