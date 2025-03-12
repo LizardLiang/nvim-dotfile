@@ -36,42 +36,10 @@ return {
     opts = {
       inlay_hints = {
         enabled = true,
-        exclude = { "vue", "cpp", "c" }, -- filetypes for which you don't want to enable inlay hints
+        exclude = { "vue", "cpp", "c", "typescript", "typescriptreact" }, -- filetypes for which you don't want to enable inlay hints
       },
       servers = {
         pyright = {},
-        -- clangd = {
-        --   cmd = {
-        --     "clangd",
-        -- "--background-index",
-        -- "--clang-tidy",
-        -- "--header-insertion=iwyu",
-        -- "--completion-style=detailed",
-        -- "--function-arg-placeholders",
-        -- "--fallback-style=llvm",
-        --   },
-        -- },
-        --[[
-        omnisharp = {
-          handlers = {
-            ["textDocument/definition"] = function(...)
-              return require("omnisharp_extended").handler(...)
-            end,
-          },
-          keys = {
-            {
-              "gd",
-              function()
-                require("omnisharp_extended").lsp_definition()
-              end,
-              desc = "Goto Definition",
-            },
-          },
-          enable_roslyn_analyzers = true,
-          organize_imports_on_format = true,
-          enable_import_completion = true,
-        },
-        ]]
       },
       setup = {
         -- clangd = function(_, opts)
