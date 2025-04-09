@@ -48,7 +48,6 @@ return {
   },
   {
     "yetone/avante.nvim",
-    enabled = false,
     event = "VeryLazy",
     lazy = false,
     version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
@@ -107,4 +106,37 @@ return {
       },
     },
   },
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   config = function()
+  --     require("codecompanion").setup({
+  --       strategies = {
+  --         chat = {
+  --           adapter = "anthropic",
+  --         },
+  --         inline = {
+  --           adapter = "anthropic",
+  --         },
+  --       },
+  --     })
+  --     local map = LazyVim.safe_keymap_set
+  --
+  --     map(
+  --       { "n", "v" },
+  --       "<leader>at",
+  --       "<cmd>CodeCompanionChat<CR>",
+  --       { noremap = true, silent = true, desc = "Chat with AI" }
+  --     )
+  --     map(
+  --       { "n", "v" },
+  --       "<leader>ac",
+  --       "<cmd>CodeCompanion<CR>",
+  --       { noremap = true, silent = true, desc = "Code Companion" }
+  --     )
+  --   end,
+  -- },
 }

@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
-  vim.o.shell = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+  vim.o.shell = "pwsh"
   vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
   vim.o.shellquote = ""
   vim.o.shellxquote = ""
@@ -37,3 +37,7 @@ vim.cmd([[
   highlight Normal ctermbg=none
   highlight NonText ctermbg=none
 ]])
+
+vim.api.nvim_create_user_command("CopyFilePath", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, {})
