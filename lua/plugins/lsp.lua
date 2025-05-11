@@ -9,6 +9,7 @@ end
 return {
   {
     "williamboman/mason.nvim",
+    version = "^1.0.0",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua",
@@ -20,6 +21,7 @@ return {
       })
     end,
   },
+  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
