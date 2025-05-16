@@ -10,8 +10,13 @@ local map = Util.safe_keymap_set
 
 local opts = { noremap = true, silent = true }
 
+-- Prevent paste to override the clipboard buffer
 map({ "v" }, "p", '"_dp')
 
+-- Prevent useless help
+map({ "n" }, "<F1>", "<nop>")
+
+-- Toggle between two buffers
 map({ "n" }, "<leader>bt", "<C-6>", { desc = "[B]uffer [T]oggle" })
 
 -- Move cursor
@@ -63,5 +68,8 @@ map({ "n" }, "<C-j>", function()
 end)
 
 map({ "n" }, "<leader>mp", "<Cmd>PeekOpen<CR>", { desc = "[O]pen [M]arkdown [P]eek" })
+
+map({ "n" }, "n", "nzzzv", { desc = "Next search result and center" })
+map({ "n" }, "N", "Nzzzv", { desc = "Next search result and center" })
 
 -- keymap.del("t", "<esc><esc>")
