@@ -72,4 +72,5 @@ map({ "n" }, "<leader>mp", "<Cmd>PeekOpen<CR>", { desc = "[O]pen [M]arkdown [P]e
 map({ "n" }, "n", "nzzzv", { desc = "Next search result and center" })
 map({ "n" }, "N", "Nzzzv", { desc = "Next search result and center" })
 
+map({ "t" }, "<esc><esc>", "<C-\\><C-n>")
 -- keymap.del("t", "<esc><esc>")
