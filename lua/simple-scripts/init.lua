@@ -144,7 +144,15 @@ end
 -- Function to find the nearest function block using Tree-sitter
 local function find_function_node()
   local original_filetype = vim.bo.filetype
-  local parser_filetype = original_filetype == "typescriptreact" and "typescript" or original_filetype
+  local parser_filetype = ""
+
+  if original_filetype == "typescriptreact" then
+    parser_filetype = "typescript"
+  elseif original_filetype == "cs" then
+    parser_filetype = "c_sharp"
+  else
+    parser_filetype = original_filetype
+  end
 
   local parser = vim.treesitter.get_parser(0, parser_filetype)
   local tree = parser:parse()[1]
@@ -182,7 +190,15 @@ end
 
 local function find_function_call()
   local original_filetype = vim.bo.filetype
-  local parser_filetype = original_filetype == "typescriptreact" and "typescript" or original_filetype
+  local parser_filetype = ""
+
+  if original_filetype == "typescriptreact" then
+    parser_filetype = "typescript"
+  elseif original_filetype == "cs" then
+    parser_filetype = "c_sharp"
+  else
+    parser_filetype = original_filetype
+  end
 
   local parser = vim.treesitter.get_parser(0, parser_filetype)
   local tree = parser:parse()[1]
@@ -245,6 +261,8 @@ M.insert_debug_message = function()
   local debug_format = ""
   local debug_args = {}
 
+  print(filetype)
+
   if vim.tbl_contains(js_like_languages, filetype) then
     if word_under_cursor and word_under_cursor ~= "" and not word_under_cursor:match("%s") then
       debug_format = custom_function and '%s("File: %s, Line: %s, %s: ", %s);'
@@ -271,6 +289,24 @@ M.insert_debug_message = function()
       debug_format = custom_function and '%s << "File: %s, Line: %s" << std::endl;'
         or 'std::cout << "File: %s, Line: %s" << std::endl;'
       debug_args = { file_name, line_number }
+    end
+  elseif filetype == "cs" then
+    if word_under_cursor and word_under_cursor ~= "" and not word_under_cursor:match("%s") then
+      debug_format = custom_function and '%s($"File: %s, Line: %s, %s: {%s}");'
+        or 'System.Diagnostics.Debug.WriteLine($"File: %s, Line: %s, %s: {%s}");'
+      debug_args = {
+        file_name,
+        line_number,
+        word_under_cursor,
+        word_under_cursor,
+      }
+    else
+      debug_format = custom_function and '%s($"File: %s, Line: %s");'
+        or 'System.Diagnostics.Debug.WriteLine($"File: %s, Line: %s");'
+      debug_args = {
+        file_name,
+        line_number,
+      }
     end
   end
 

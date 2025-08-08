@@ -57,7 +57,7 @@ return {
       -- Add any additional formatters here
       formatters_by_ft = {
         gyp = { "prettier_for_gyp" },
-        cs = { "csharpier" },
+        cs = { "omnisharp" },
       },
       formatters = {
         prettier_for_gyp = prettier_for_gyp,
@@ -91,5 +91,4 @@ return {
       vim.treesitter.language.register("markdown", "mdx")
     end,
   },
-  { "Hoffs/omnisharp-extended-lsp.nvim", lazy = true, enable = false },
 }
