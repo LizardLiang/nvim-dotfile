@@ -7,3 +7,5 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",
   command = "set nopaste",
 })
+
+vim.api.nvim_create_user_command("Code", ":!code %<CR>", { desc = "Open file with VsCode" })

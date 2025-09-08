@@ -58,6 +58,8 @@ return {
       formatters_by_ft = {
         gyp = { "prettier_for_gyp" },
         cs = { "omnisharp" },
+        typescriptreact = { "prettierd" },
+        javascriptreact = { "prettierd" },
       },
       formatters = {
         prettier_for_gyp = prettier_for_gyp,
