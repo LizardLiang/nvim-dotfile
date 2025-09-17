@@ -12,10 +12,10 @@ return {
         },
       })
 
-      vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
-      vim.keymap.set("n", "<leader>gc", function()
-        neogit.open({ "commit" })
-      end)
+      -- vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
+      -- vim.keymap.set("n", "<leader>gc", function()
+      --   neogit.open({ "commit" })
+      -- end)
     end,
   },
   {

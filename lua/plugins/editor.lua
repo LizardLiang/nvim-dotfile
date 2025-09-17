@@ -195,42 +195,6 @@ return {
     end,
   },
   {
-    "linux-cultist/venv-selector.nvim",
-    cmd = "VenvSelect",
-    opts = function(_, opts)
-      if require("lazyvim.util").has("nvim-dap-python") then
-        opts.dap_enabled = true
-      end
-      return vim.tbl_deep_extend("force", opts, {
-        name = {
-          "venv",
-          ".venv",
-          "env",
-          ".env",
-        },
-      })
-    end,
-    keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
-  },
-  {
-    "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
-    config = true,
-  },
-  {
-    "sudoerwx/vim-ray-so-beautiful",
-    vscode = true,
-    keys = {
-      { "<leader>cs", ":Ray<CR>", desc = "[C]ode [S]napshot", noremap = true, silent = true, mode = { "n", "v" } },
-    },
-    config = function()
-      vim.g.ray_options = {
-        padding = "0",
-        theme = "midnight",
-      }
-    end,
-  },
-  {
     "toppair/peek.nvim",
     event = { "VeryLazy" },
     build = "deno task --quiet build:fast",
@@ -239,5 +203,18 @@ return {
       vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        formatters = {
+          file = {
+            -- whatever sane or insane value you need, default was 40
+            truncate = 300,
+          },
+        },
+      },
+    },
   },
 }

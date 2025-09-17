@@ -157,7 +157,7 @@ return {
       return opts
     end,
   },
-  { "folke/snacks.nvim", opts = { dashboard = { enabled = false } } },
+  { "folke/snacks.nvim", opts = { dashboard = { enabled = false }, picker = { enabled = true } } },
   {
     "stevearc/oil.nvim",
     opts = {},
