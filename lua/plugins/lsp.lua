@@ -21,7 +21,7 @@ return {
       })
     end,
   },
-  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+  { "mason-org/mason-lspconfig.nvim" },
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
@@ -84,7 +84,7 @@ return {
       }
     end,
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
+      require("nvim-treesitter").setup(opts)
 
       vim.filetype.add({
         extension = { mdx = "mdx" },
