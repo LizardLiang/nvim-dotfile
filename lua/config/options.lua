@@ -44,3 +44,5 @@ end, {})
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+
+-- vim.lsp.config("roslyn", {})
