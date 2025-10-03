@@ -48,6 +48,7 @@ return {
   },
   {
     "LizardLiang/claudecode.nvim",
+    branch = "stop-open-terminal-when-send-buffer",
     dependencies = { "folke/snacks.nvim" },
     keys = {
       { "<leader>at", "<cmd>ClaudeCodeFocus<cr>", desc = "Claude Code", mode = { "n", "x" } },
