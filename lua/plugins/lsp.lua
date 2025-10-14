@@ -42,7 +42,7 @@ return {
     end,
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua",
@@ -103,10 +103,16 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
+      vim.filetype.add({
+        extension = { mdx = "mdx" },
+      })
+
+      vim.treesitter.language.register("markdown", "mdx")
+
       if type(opts.ensure_installed) == "table" then
         vim.list_extend(
           opts.ensure_installed,
-          { "ninja", "python", "rst", "toml", "scss", "cmake", "cpp", "css", "sql" }
+          { "python", "rst", "toml", "scss", "cmake", "cpp", "css", "sql", "tsx", "jsx", "javascript" }
         )
       end
       opts.highlight = {
@@ -116,15 +122,6 @@ return {
         end,
         additional_vim_regex_highlighting = { "latex" },
       }
-    end,
-    config = function(_, opts)
-      require("nvim-treesitter").setup(opts)
-
-      vim.filetype.add({
-        extension = { mdx = "mdx" },
-      })
-
-      vim.treesitter.language.register("markdown", "mdx")
     end,
   },
 }
