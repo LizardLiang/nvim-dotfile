@@ -9,7 +9,6 @@ end
 return {
   {
     "seblyng/roslyn.nvim",
-    enabled = false,
     config = function()
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
       vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
