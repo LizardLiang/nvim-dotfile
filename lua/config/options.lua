@@ -24,7 +24,7 @@ if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
   vim.o.shellquote = ""
   vim.o.shellxquote = ""
 else
-  vim.o.shell = "/usr/bin/zsh"
+  vim.o.shell = "/home/linuxbrew/.linuxbrew/bin/zsh"
 end
 
 if vim.g.vscode then
