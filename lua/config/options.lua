@@ -42,7 +42,6 @@ vim.api.nvim_create_user_command("CopyFilePath", function()
   vim.fn.setreg("+", vim.fn.expand("%:p"))
 end, {})
 
-vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- vim.lsp.config("roslyn", {})

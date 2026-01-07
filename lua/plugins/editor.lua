@@ -217,4 +217,51 @@ return {
       },
     },
   },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      },
+      settings = {
+        save_on_toggle = true,
+      },
+    },
+    keys = {
+      {
+        "<leader>h",
+        false,
+      },
+      {
+        "<leader>hh",
+        function()
+          local harpoon = require("harpoon")
+          harpoon.ui:toggle_quick_menu(harpoon:list())
+        end,
+        desc = "Harpoon Quick Menu",
+      },
+      {
+        "<leader>ha",
+        function()
+          require("harpoon.mark").add_file()
+        end,
+        desc = "Harpoon Add File",
+      },
+      {
+        "<leader>hn",
+        function()
+          require("harpoon").ui:nav_next()
+        end,
+        desc = "Harpoon Next File",
+      },
+      {
+        "<leader>hp",
+        function()
+          require("harpoon").ui:nav_prev()
+        end,
+        desc = "Harpoon Previous File",
+      },
+    },
+  },
 }

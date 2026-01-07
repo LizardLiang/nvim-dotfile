@@ -101,6 +101,17 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    keys = {
+      { "[c", false },
+      { "]c", false },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    keys = {
+      { "[c", false },
+      { "]c", false },
+    },
     opts = function(_, opts)
       vim.filetype.add({
         extension = { mdx = "mdx" },
