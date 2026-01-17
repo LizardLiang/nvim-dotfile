@@ -61,9 +61,9 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
+    version = "v1.0.2",
     event = "LazyFile",
     opts = {
-      debug_mode = true,
       signs = {
         add = { text = "+" },
         change = { text = "~" },
