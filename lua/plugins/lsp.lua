@@ -90,9 +90,9 @@ return {
       -- Add any additional formatters here
       formatters_by_ft = {
         gyp = { "prettier_for_gyp" },
-        cs = { "csharpier" },
-        typescriptreact = { "prettierd" },
-        javascriptreact = { "prettierd" },
+        cs = { "dprint" },
+        typescriptreact = { "dprint" },
+        javascriptreact = { "dprint" },
       },
       formatters = {
         prettier_for_gyp = prettier_for_gyp,
