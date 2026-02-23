@@ -93,6 +93,7 @@ return {
         cs = { "dprint" },
         typescriptreact = { "dprint" },
         javascriptreact = { "dprint" },
+        json = { "dprint" },
       },
       formatters = {
         prettier_for_gyp = prettier_for_gyp,
