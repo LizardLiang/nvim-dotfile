@@ -74,3 +74,6 @@ map({ "n" }, "N", "Nzzzv", { desc = "Next search result and center" })
 
 map({ "t" }, "<esc><esc>", "<C-\\><C-n>")
 -- keymap.del("t", "<esc><esc>")
+
+-- Git explorer (neo-tree git status float)
+map({ "n" }, "<leader>ge", "<cmd>Neotree source=git_status position=float<cr>", { desc = "Git Explorer" })
