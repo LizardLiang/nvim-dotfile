@@ -6,6 +6,12 @@ local function ts_disable(_, bufnr)
   return vim.api.nvim_buf_line_count(bufnr) > 5000
 end
 
+vim.lsp.config("eslint", {
+  settings = {
+    useFlatConfig = false,
+  },
+})
+
 return {
   {
     "seblyng/roslyn.nvim",
