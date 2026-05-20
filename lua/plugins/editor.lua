@@ -264,4 +264,10 @@ return {
       },
     },
   },
+  {
+    "LizardLiang/big5.nvim",
+    config = function()
+      require("big5").setup()
+    end,
+  },
 }

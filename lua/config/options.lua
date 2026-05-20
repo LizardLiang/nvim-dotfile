@@ -44,4 +44,16 @@ end, {})
 
 vim.opt.backup = false
 
+vim.lsp.enable("roslyn_ls")
+
+vim.lsp.config("roslyn_ls", {
+  filetypes = { "razor", "cs", "cshtml" },
+  settings = {
+    ["csharp|background_analysis"] = {
+      dotnet_analyzer_diagnostics_scope = "openFiles",
+      dotnet_compiler_diagnostics_scope = "openFiles",
+    },
+  },
+})
+
 -- vim.lsp.config("roslyn", {})
