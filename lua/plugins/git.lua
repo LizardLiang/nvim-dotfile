@@ -60,6 +60,41 @@ return {
     },
   },
   {
+    dir = "~/personal/nvim-plugin",
+    name = "liz-diff",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "<leader>gf", "<Cmd>LizDiff<CR>", desc = "Liz Diff" },
+    },
+  },
+  {
+    "dlyongemallo/diffview-plus.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewClose",
+      "DiffviewToggleFiles",
+      "DiffviewFocusFiles",
+      "DiffviewFileHistory",
+    },
+    keys = {
+      { "<leader>gv", "<Cmd>DiffviewOpen<CR>", desc = "[G]it [V]iew (Diffview)" },
+      { "<leader>gV", "<Cmd>DiffviewClose<CR>", desc = "[G]it [V]iew close" },
+      { "<leader>gl", "<Cmd>DiffviewFileHistory<CR>", desc = "[G]it [L]og (repo history)" },
+      { "<leader>gF", "<Cmd>DiffviewFileHistory %<CR>", desc = "[G]it [F]ile history (current file)" },
+    },
+    opts = {
+      view = {
+        merge_tool = {
+          -- 4-way merge layout: OURS | BASE | THEIRS on top, result below
+          layout = "diff4_mixed",
+          disable_diagnostics = true,
+        },
+      },
+    },
+  },
+  {
     "lewis6991/gitsigns.nvim",
     version = "v1.0.2",
     event = "LazyFile",
