@@ -23,11 +23,27 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    opts = {
-      options = {
-        theme = "tokyonight-night",
-      },
-    },
+    opts = function(_, opts)
+      opts.options = opts.options or {}
+      opts.options.theme = "tokyonight-night"
+
+      -- liz-live-server status: shows " :<port>" while serving, error token on
+      -- failure, hidden otherwise. The cond guard checks package.loaded so the
+      -- (lazy-loaded) plugin is never force-required just to draw the statusline.
+      opts.sections = opts.sections or {}
+      opts.sections.lualine_x = opts.sections.lualine_x or {}
+      table.insert(opts.sections.lualine_x, 1, {
+        function()
+          return require("liz-live-server").lualine_component()
+        end,
+        cond = function()
+          local m = package.loaded["liz-live-server"]
+          return m ~= nil and (m.state.running or m.state.error ~= nil)
+        end,
+      })
+
+      return opts
+    end,
   },
   {
     "SmiteshP/nvim-navic",
