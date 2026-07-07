@@ -43,7 +43,7 @@ return {
     event = "BufRead",
     config = function()
       local map = vim.keymap.set
-      map({ "n" }, "<leader>gd", "<Cmd>Gvdiff<CR>", { desc = "[G]it [D]iff" })
+      -- <leader>gd now opens liz-diff's current-file view (see the liz-diff spec below)
       map({ "n" }, "<leader>gD", "<Cmd>Gvdiffsplit<CR>", { desc = "[Git] [D]iff conflict" })
     end,
   },
@@ -65,6 +65,7 @@ return {
     opts = {},
     keys = {
       { "<leader>gf", "<Cmd>LizDiff<CR>", desc = "Liz Diff" },
+      { "<leader>gd", "<Cmd>LizDiffFile<CR>", desc = "Liz Diff: current file vs HEAD" },
     },
   },
   {
