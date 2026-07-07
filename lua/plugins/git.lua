@@ -60,8 +60,7 @@ return {
     },
   },
   {
-    dir = "~/personal/nvim-plugin",
-    name = "liz-diff",
+    "LizardLiang/liz-diff",
     event = "VeryLazy",
     opts = {},
     keys = {

@@ -3,7 +3,7 @@ return {
     "LizardLiang/liz-live-server",
     cmd = { "LiveServerStart", "LiveServerStop", "LiveServerToggle" },
     keys = {
-      { "<leader>P", "<cmd>LiveServerToggle<cr>", desc = "Live server (Preview) toggle" },
+      { "<leader>P", "<cmd>LiveServerOpenCurrent<cr>", desc = "Live server (Preview) toggle" },
     },
     opts = {},
   },
