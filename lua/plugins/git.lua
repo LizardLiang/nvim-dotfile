@@ -21,7 +21,6 @@ return {
   {
     "dinhhuy258/git.nvim", -- For git blame & browse
     event = "BufReadPre",
-    keys = { { "<leader>gp", false }, { "<leader>gd", false }, { "<leader>gD", false } },
     config = function()
       local status, git = pcall(require, "git")
       if not status then
@@ -29,6 +28,8 @@ return {
       end
 
       git.setup({
+        -- Must stay false: git.nvim must not rebind <leader>gd/<leader>gD, which belong to liz-diff and fugitive.
+        default_mappings = false,
         keymaps = {
           -- Open blame window
           blame = "<Leader>gb",
